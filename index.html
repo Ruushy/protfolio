@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdi Wali Ahmed | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #112240;
+            --accent-color: #64ffda;
+            --text-primary: #e6f1ff;
+            --text-secondary: #8892b0;
+            --text-accent: #64ffda;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 25, 47, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(100, 255, 218, 0.1), transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            max-width: 800px;
+        }
+
+        .hero-text h3 {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--secondary-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+
+        .personal-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        .info-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-right: 10px;
+        }
+
+        .info-value {
+            color: var(--text-secondary);
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: var(--primary-color);
+        }
+
+        .skills-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-list li {
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        /* Resume Section */
+        .resume {
+            background-color: var(--secondary-color);
+        }
+
+        .resume-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .resume-column h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        .resume-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: rgba(17, 34, 64, 0.5);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .resume-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .resume-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .resume-item h5 {
+            font-size: 1rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .resume-item .institution {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .resume-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: var(--primary-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            transform: translateX(5px);
+        }
+
+        .project-card {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--secondary-color);
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer p {
+            color: var(--text-secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 992px) {
+            .about-content,
+            .skills-content,
+            .resume-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--secondary-color);
+                text-align: center;
+                padding: 30px 0;
+                transition: var(--transition);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-links.active {
+                top: 60px;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .skill-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">AW</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h3>Hello, I am</h3>
+                    <h1>Abdi Wali Ahmed</h1>
+                    <h2>Web Developer | Software Engineer</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>Enthusiastic Computer Science graduate from the University of Somalia (UNISO), with a robust foundation in software development and network analysis. Skilled in developing web applications using Django and adept at network scanning and vulnerability assessment with tools like Nmap, honed through academic training and self-directed online courses.</p>
+                    <p>I have extensive knowledge in developing web applications using the Python framework Django and managing databases with MySQL. Additionally, I have a solid background in building desktop applications using the C# and Java programming languages.</p>
+                    <p>Currently expanding expertise in cybersecurity through active learning, I bring a proactive approach to problem-solving and a passion for technology, eager to contribute to innovative and secure software solutions.</p>
+                </div>
+                <div class="personal-info">
+                    <h3>Personal Info</h3>
+                    <div class="info-item">
+                        <span class="info-title">Email:</span>
+                        <span class="info-value">arkani6563@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Phone:</span>
+                        <span class="info-value">+252 619987794</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Location:</span>
+                        <span class="info-value">Somalia, Mogadishu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-content">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Web Development</li>
+                        <li>Django Framework</li>
+                        <li>MySQL Database</li>
+                        <li>Desktop Application Development</li>
+                        <li>C# Programming</li>
+                        <li>Java Programming</li>
+                        <li>Version Control (Git)</li>
+                        <li>Network Scanning & Security</li>
+                        <li>Cybersecurity (Actively Learning)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>Arabic</li>
+                        <li>Somali</li>
+                        <li>English</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Resume</h2>
+            </div>
+            <div class="resume-content">
+                <div class="resume-column">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <h4>Bachelor of Computer Science</h4>
+                        <h5>2024</h5>
+                        <p class="institution">University of Somalia (UNISO), Faculty of Computer Science</p>
+                        <p>Developed a strong foundation in programming, software development, and IT systems through rigorous coursework.</p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>Cybersecurity Training (In Progress)</h4>
+                        <h5>February 2025 - Present</h5>
+                        <p class="institution">Acyberschool Secure+ Certification Foundation</p>
+                        <p>Actively learning cybersecurity fundamentals, including network security, threat analysis, and risk management.</p>
+                    </div>
+                </div>
+                <div class="resume-column">
+                    <h3>Expertise</h3>
+                    <div class="resume-item">
+                        <h4>Git and GitHub</h4>
+                        <h5>2024</h5>
+                        <p>With my certification in Git and GitHub, I possess a strong understanding of version control, branching, merging, and collaborating with teams. These skills enable me to efficiently manage code repositories, streamline development workflows, and facilitate seamless collaboration among team members.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Student Management System</h3>
+                        <p>Introducing my Student Management System, a modern and intuitive solution for educational institutions. With advanced features and seamless integration, it revolutionizes student data management and administration processes.</p>
+                        <a href="https://github.com/Ruushy/Student-management-system-in-Django-and-mysql" target="_blank" class="project-link">View Project <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Intelligent Chatbot</h3>
+                        <p>A sophisticated chatbot application built using Django, designed to provide seamless user interaction and support. This project leverages natural language processing to understand and respond to user queries effectively.</p>
+                        <a href="https://github.com/Ruushy/Intelligent-Chatbot-in-django" target="_blank" class="project-link">View Project <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Library Management System</h3>
+                        <p>Discover our Library Management System, a comprehensive solution designed to streamline library resources and enhance patron experience. It offers efficient book tracking, seamless borrowing, and returning processes.</p>
+                        <a href="https://github.com/Ruushy/Library_managment_system" target="_blank" class="project-link">View Project <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Food Order System</h3>
+                        <p>Experience our Food Order System, a user-friendly platform that simplifies the food ordering process.</p>
+                        <a href="https://github.com/Ruushy/Food_Order-System/" target="_blank" class="project-link">View Project <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Abdi Wali Ahmed. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/arkani659/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/Ruushy" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.youtube.com/channel/UCEA69mCoUj1nqXyG8Bh2PsQ" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-links a');
+            const sections = document.querySelectorAll('section');
+
+            // Toggle mobile menu
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when a nav link is clicked
+            navLinksItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (hamburger) hamburger.classList.remove('active');
+                    if (navLinks) navLinks.classList.remove('active');
+                });
+            });
+
+            // Active nav link based on scroll position
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinksItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href').substring(1) === current) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Smooth scroll for Safari/IE/Edge
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add fade-in animation to hero text
+            const heroText = document.querySelector('.hero-text');
+            if (heroText) {
+                heroText.style.opacity = '0';
+                heroText.style.transform = 'translateY(20px)';
+                heroText.style.transition = 'opacity 1s ease, transform 1s ease';
+                
+                setTimeout(() => {
+                    heroText.style.opacity = '1';
+                    heroText.style.transform = 'translateY(0)';
+                }, 300);
+            }
+            
+            // Add animation classes to sections
+            document.querySelectorAll('section').forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = `opacity 0.8s ease ${index * 0.2}s, transform 0.8s ease ${index * 0.2}s`;
+                
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, 100 + (index * 200));
+            });
+        });
+    </script>
+</body>
+</html>
