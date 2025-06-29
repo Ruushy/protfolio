@@ -16,22 +16,59 @@
             --text-accent: #64ffda;
             --transition: all 0.3s ease;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--primary-color);
             color: var(--text-primary);
             line-height: 1.6;
+            transition: var(--transition);
+        }
+        
+        /* RTL Support for Arabic */
+        body.rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        body.rtl .navbar .container {
+            flex-direction: row-reverse;
+        }
+        
+        body.rtl .nav-links {
+            flex-direction: row-reverse;
+        }
+        
+        body.rtl .footer-content {
+            flex-direction: row-reverse;
+        }
+        
+        body.rtl .about-content,
+        body.rtl .skills-content,
+        body.rtl .resume-content {
+            direction: rtl;
+        }
+        
+        body.rtl .skill-list li {
+            padding-right: 25px;
+            padding-left: 0;
+        }
+        
+        body.rtl .skill-list li::before {
+            right: 0;
+            left: auto;
+        }
+        
+        body.rtl .resume-item {
+            border-right: 3px solid var(--accent-color);
+            border-left: none;
         }
 
         .container {
@@ -40,23 +77,19 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
         section {
             padding: 80px 0;
         }
-
         .section-title {
             text-align: center;
             margin-bottom: 50px;
         }
-
         .section-title h2 {
             font-size: 2.5rem;
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
         }
-
         .section-title h2::after {
             content: '';
             position: absolute;
@@ -67,17 +100,14 @@
             height: 3px;
             background-color: var(--accent-color);
         }
-
         a {
             text-decoration: none;
             color: var(--text-primary);
             transition: var(--transition);
         }
-
         a:hover {
             color: var(--accent-color);
         }
-
         ul {
             list-style: none;
         }
@@ -94,13 +124,11 @@
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
-
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
@@ -109,22 +137,25 @@
             padding: 5px 10px;
             border-radius: 5px;
         }
-
+        
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
         .nav-links {
             display: flex;
             gap: 30px;
         }
-
         .nav-links a {
             font-weight: 500;
             position: relative;
         }
-
         .nav-links a.active,
         .nav-links a:hover {
             color: var(--accent-color);
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -135,17 +166,82 @@
             background-color: var(--accent-color);
             transition: var(--transition);
         }
-
         .nav-links a:hover::after,
         .nav-links a.active::after {
             width: 100%;
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-primary);
+            border: 2px solid var(--accent-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .language-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--secondary-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            min-width: 120px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--transition);
+            z-index: 1001;
+        }
+        
+        .language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .language-option:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .language-option.active {
+            background-color: rgba(100, 255, 218, 0.2);
+            color: var(--accent-color);
         }
 
         .hamburger {
             display: none;
             cursor: pointer;
         }
-
         .bar {
             display: block;
             width: 25px;
@@ -164,7 +260,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -175,28 +270,23 @@
             background: radial-gradient(circle at top right, rgba(100, 255, 218, 0.1), transparent 50%);
             z-index: 0;
         }
-
         .hero-content {
             position: relative;
             z-index: 1;
         }
-
         .hero-text {
             max-width: 800px;
         }
-
         .hero-text h3 {
             font-size: 1.5rem;
             color: var(--text-secondary);
             margin-bottom: 10px;
         }
-
         .hero-text h1 {
             font-size: 4rem;
             margin-bottom: 10px;
             color: var(--text-primary);
         }
-
         .hero-text h2 {
             font-size: 2rem;
             color: var(--text-secondary);
@@ -207,40 +297,33 @@
         .about {
             background-color: var(--secondary-color);
         }
-
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
-
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--accent-color);
         }
-
         .about-text p {
             margin-bottom: 15px;
             color: var(--text-secondary);
         }
-
         .personal-info h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--accent-color);
         }
-
         .info-item {
             margin-bottom: 15px;
         }
-
         .info-title {
             font-weight: 600;
             color: var(--text-primary);
             margin-right: 10px;
         }
-
         .info-value {
             color: var(--text-secondary);
         }
@@ -249,31 +332,26 @@
         .skills {
             background-color: var(--primary-color);
         }
-
         .skills-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 50px;
         }
-
         .skill-category h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--accent-color);
         }
-
         .skill-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
-
         .skill-list li {
             color: var(--text-secondary);
             position: relative;
             padding-left: 25px;
         }
-
         .skill-list li::before {
             content: '▹';
             position: absolute;
@@ -286,19 +364,16 @@
         .resume {
             background-color: var(--secondary-color);
         }
-
         .resume-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
-
         .resume-column h3 {
             font-size: 1.8rem;
             margin-bottom: 30px;
             color: var(--accent-color);
         }
-
         .resume-item {
             margin-bottom: 30px;
             padding: 25px;
@@ -307,30 +382,25 @@
             border-left: 3px solid var(--accent-color);
             transition: var(--transition);
         }
-
         .resume-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
         .resume-item h4 {
             font-size: 1.3rem;
             margin-bottom: 5px;
             color: var(--text-primary);
         }
-
         .resume-item h5 {
             font-size: 1rem;
             color: var(--accent-color);
             margin-bottom: 10px;
         }
-
         .resume-item .institution {
             font-style: italic;
             color: var(--text-secondary);
             margin-bottom: 10px;
         }
-
         .resume-item p {
             color: var(--text-secondary);
         }
@@ -339,13 +409,11 @@
         .projects {
             background-color: var(--primary-color);
         }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
         }
-        
         .project-link {
             display: inline-block;
             margin-top: 15px;
@@ -353,11 +421,9 @@
             font-weight: 500;
             transition: var(--transition);
         }
-        
         .project-link:hover {
             transform: translateX(5px);
         }
-
         .project-card {
             background-color: var(--secondary-color);
             border-radius: 10px;
@@ -365,22 +431,18 @@
             transition: var(--transition);
             height: 100%;
         }
-
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
-
         .project-content {
             padding: 25px;
         }
-
         .project-content h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--accent-color);
         }
-
         .project-content p {
             color: var(--text-secondary);
         }
@@ -390,22 +452,18 @@
             background-color: var(--secondary-color);
             padding: 30px 0;
         }
-
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .footer p {
             color: var(--text-secondary);
         }
-
         .social-links {
             display: flex;
             gap: 20px;
         }
-
         .social-icon {
             display: flex;
             align-items: center;
@@ -417,7 +475,6 @@
             color: var(--accent-color);
             transition: var(--transition);
         }
-
         .social-icon:hover {
             background-color: var(--accent-color);
             color: var(--primary-color);
@@ -432,17 +489,18 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
             .hero-text h1 {
                 font-size: 3rem;
             }
-            
             .hero-text h2 {
                 font-size: 1.5rem;
             }
         }
-
         @media screen and (max-width: 768px) {
+            .nav-center {
+                gap: 15px;
+            }
+            
             .nav-links {
                 position: fixed;
                 top: -100%;
@@ -455,50 +513,44 @@
                 transition: var(--transition);
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
             }
-            
             .nav-links.active {
                 top: 60px;
             }
-            
             .hamburger {
                 display: block;
             }
-            
             .hamburger.active .bar:nth-child(2) {
                 opacity: 0;
             }
-            
             .hamburger.active .bar:nth-child(1) {
                 transform: translateY(8px) rotate(45deg);
             }
-            
             .hamburger.active .bar:nth-child(3) {
                 transform: translateY(-8px) rotate(-45deg);
             }
-            
             .skill-list {
                 grid-template-columns: 1fr;
             }
-            
             .footer-content {
                 flex-direction: column;
                 gap: 20px;
             }
-            
             .hero-text h1 {
                 font-size: 2.5rem;
             }
+            
+            .language-dropdown {
+                right: auto;
+                left: 0;
+            }
         }
-
         @media screen and (max-width: 576px) {
             .section-title h2 {
                 font-size: 2rem;
             }
-            
             .hero-text h1 {
                 font-size: 2rem;
             }
-            
             .hero-text h2 {
                 font-size: 1.2rem;
             }
@@ -510,13 +562,36 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">AW</div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="#home" class="active" data-translate="nav.home">Home</a></li>
+                    <li><a href="#about" data-translate="nav.about">About</a></li>
+                    <li><a href="#skills" data-translate="nav.skills">Skills</a></li>
+                    <li><a href="#resume" data-translate="nav.resume">Resume</a></li>
+                    <li><a href="#projects" data-translate="nav.projects">Projects</a></li>
+                </ul>
+                <div class="language-selector">
+                    <button class="language-btn" id="languageBtn">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLang">EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option active" data-lang="en">
+                            <span>🇺🇸</span>
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" data-lang="ar">
+                            <span>🇸🇦</span>
+                            <span>العربية</span>
+                        </div>
+                        <div class="language-option" data-lang="so">
+                            <span>🇸🇴</span>
+                            <span>Soomaali</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -530,9 +605,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h3>Hello, I am</h3>
+                    <h3 data-translate="hero.greeting">Hello, I am</h3>
                     <h1>Abdi Wali Ahmed</h1>
-                    <h2>Web Developer | Software Engineer</h2>
+                    <h2 data-translate="hero.title">Web Developer | Software Engineer</h2>
                 </div>
             </div>
         </div>
@@ -542,28 +617,28 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Me</h2>
+                <h2 data-translate="about.title">About Me</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Who am I?</h3>
-                    <p>Enthusiastic Computer Science graduate from the University of Somalia (UNISO), with a robust foundation in software development and network analysis. Skilled in developing web applications using Django and adept at network scanning and vulnerability assessment with tools like Nmap, honed through academic training and self-directed online courses.</p>
-                    <p>I have extensive knowledge in developing web applications using the Python framework Django and managing databases with MySQL. Additionally, I have a solid background in building desktop applications using the C# and Java programming languages.</p>
-                    <p>Currently expanding expertise in cybersecurity through active learning, I bring a proactive approach to problem-solving and a passion for technology, eager to contribute to innovative and secure software solutions.</p>
+                    <h3 data-translate="about.whoAmI">Who am I?</h3>
+                    <p data-translate="about.paragraph1">Enthusiastic Computer Science graduate from the University of Somalia (UNISO), with a robust foundation in software development and network analysis. Skilled in developing web applications using Django and adept at network scanning and vulnerability assessment with tools like Nmap, honed through academic training and self-directed online courses.</p>
+                    <p data-translate="about.paragraph2">I have extensive knowledge in developing web applications using the Python framework Django and managing databases with MySQL. Additionally, I have a solid background in building desktop applications using the C# and Java programming languages.</p>
+                    <p data-translate="about.paragraph3">Currently expanding expertise in cybersecurity through active learning, I bring a proactive approach to problem-solving and a passion for technology, eager to contribute to innovative and secure software solutions.</p>
                 </div>
                 <div class="personal-info">
-                    <h3>Personal Info</h3>
+                    <h3 data-translate="about.personalInfo">Personal Info</h3>
                     <div class="info-item">
-                        <span class="info-title">Email:</span>
+                        <span class="info-title" data-translate="about.email">Email:</span>
                         <span class="info-value">arkani6563@gmail.com</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-title">Phone:</span>
+                        <span class="info-title" data-translate="about.phone">Phone:</span>
                         <span class="info-value">+252 619987794</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-title">Location:</span>
-                        <span class="info-value">Somalia, Mogadishu</span>
+                        <span class="info-title" data-translate="about.location">Location:</span>
+                        <span class="info-value" data-translate="about.locationValue">Somalia, Mogadishu</span>
                     </div>
                 </div>
             </div>
@@ -574,29 +649,29 @@
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-title">
-                <h2>My Skills</h2>
+                <h2 data-translate="skills.title">My Skills</h2>
             </div>
             <div class="skills-content">
                 <div class="skill-category">
-                    <h3>Technical Skills</h3>
+                    <h3 data-translate="skills.technical">Technical Skills</h3>
                     <ul class="skill-list">
-                        <li>Web Development</li>
-                        <li>Django Framework</li>
-                        <li>MySQL Database</li>
-                        <li>Desktop Application Development</li>
-                        <li>C# Programming</li>
-                        <li>Java Programming</li>
-                        <li>Version Control (Git)</li>
-                        <li>Network Scanning & Security</li>
-                        <li>Cybersecurity (Actively Learning)</li>
+                        <li data-translate="skills.webDev">Web Development</li>
+                        <li data-translate="skills.django">Django Framework</li>
+                        <li data-translate="skills.mysql">MySQL Database</li>
+                        <li data-translate="skills.desktop">Desktop Application Development</li>
+                        <li data-translate="skills.csharp">C# Programming</li>
+                        <li data-translate="skills.java">Java Programming</li>
+                        <li data-translate="skills.git">Version Control (Git)</li>
+                        <li data-translate="skills.network">Network Scanning & Security</li>
+                        <li data-translate="skills.cyber">Cybersecurity (Actively Learning)</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Languages</h3>
+                    <h3 data-translate="skills.languages">Languages</h3>
                     <ul class="skill-list">
-                        <li>Arabic</li>
-                        <li>Somali</li>
-                        <li>English</li>
+                        <li data-translate="skills.arabic">Arabic</li>
+                        <li data-translate="skills.somali">Somali</li>
+                        <li data-translate="skills.english">English</li>
                     </ul>
                 </div>
             </div>
@@ -607,30 +682,30 @@
     <section id="resume" class="resume">
         <div class="container">
             <div class="section-title">
-                <h2>My Resume</h2>
+                <h2 data-translate="resume.title">My Resume</h2>
             </div>
             <div class="resume-content">
                 <div class="resume-column">
-                    <h3>Education</h3>
+                    <h3 data-translate="resume.education">Education</h3>
                     <div class="resume-item">
-                        <h4>Bachelor of Computer Science</h4>
+                        <h4 data-translate="resume.degree">Bachelor of Computer Science</h4>
                         <h5>2024</h5>
-                        <p class="institution">University of Somalia (UNISO), Faculty of Computer Science</p>
-                        <p>Developed a strong foundation in programming, software development, and IT systems through rigorous coursework.</p>
+                        <p class="institution" data-translate="resume.university">University of Somalia (UNISO), Faculty of Computer Science</p>
+                        <p data-translate="resume.degreeDesc">Developed a strong foundation in programming, software development, and IT systems through rigorous coursework.</p>
                     </div>
                     <div class="resume-item">
-                        <h4>Cybersecurity Training (In Progress)</h4>
-                        <h5>February 2025 - Present</h5>
-                        <p class="institution">Acyberschool Secure+ Certification Foundation</p>
-                        <p>Actively learning cybersecurity fundamentals, including network security, threat analysis, and risk management.</p>
+                        <h4 data-translate="resume.cyberTraining">Cybersecurity Training (In Progress)</h4>
+                        <h5 data-translate="resume.cyberDate">February 2025 - Present</h5>
+                        <p class="institution" data-translate="resume.cyberInstitution">Acyberschool Secure+ Certification Foundation</p>
+                        <p data-translate="resume.cyberDesc">Actively learning cybersecurity fundamentals, including network security, threat analysis, and risk management.</p>
                     </div>
                 </div>
                 <div class="resume-column">
-                    <h3>Expertise</h3>
+                    <h3 data-translate="resume.expertise">Expertise</h3>
                     <div class="resume-item">
-                        <h4>Git and GitHub</h4>
+                        <h4 data-translate="resume.gitTitle">Git and GitHub</h4>
                         <h5>2024</h5>
-                        <p>With my certification in Git and GitHub, I possess a strong understanding of version control, branching, merging, and collaborating with teams. These skills enable me to efficiently manage code repositories, streamline development workflows, and facilitate seamless collaboration among team members.</p>
+                        <p data-translate="resume.gitDesc">With my certification in Git and GitHub, I possess a strong understanding of version control, branching, merging, and collaborating with teams. These skills enable me to efficiently manage code repositories, streamline development workflows, and facilitate seamless collaboration among team members.</p>
                     </div>
                 </div>
             </div>
@@ -641,35 +716,43 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-title">
-                <h2>My Projects</h2>
+                <h2 data-translate="projects.title">My Projects</h2>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Student Management System</h3>
-                        <p>Introducing my Student Management System, a modern and intuitive solution for educational institutions. With advanced features and seamless integration, it revolutionizes student data management and administration processes.</p>
-                        <a href="https://github.com/Ruushy/Student-management-system-in-Django-and-mysql" target="_blank" class="project-link">View Project <i class="fab fa-github"></i></a>
+                        <h3 data-translate="projects.studentSystem">Student Management System</h3>
+                        <p data-translate="projects.studentDesc">Introducing my Student Management System, a modern and intuitive solution for educational institutions. With advanced features and seamless integration, it revolutionizes student data management and administration processes.</p>
+                        <a href="https://github.com/Ruushy/Student-management-system-in-Django-and-mysql" target="_blank" class="project-link">
+                            <span data-translate="projects.viewProject">View Project</span> <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Intelligent Chatbot</h3>
-                        <p>A sophisticated chatbot application built using Django, designed to provide seamless user interaction and support. This project leverages natural language processing to understand and respond to user queries effectively.</p>
-                        <a href="https://github.com/Ruushy/Intelligent-Chatbot-in-django" target="_blank" class="project-link">View Project <i class="fab fa-github"></i></a>
+                        <h3 data-translate="projects.chatbot">Intelligent Chatbot</h3>
+                        <p data-translate="projects.chatbotDesc">A sophisticated chatbot application built using Django, designed to provide seamless user interaction and support. This project leverages natural language processing to understand and respond to user queries effectively.</p>
+                        <a href="https://github.com/Ruushy/Intelligent-Chatbot-in-django" target="_blank" class="project-link">
+                            <span data-translate="projects.viewProject">View Project</span> <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Library Management System</h3>
-                        <p>Discover our Library Management System, a comprehensive solution designed to streamline library resources and enhance patron experience. It offers efficient book tracking, seamless borrowing, and returning processes.</p>
-                        <a href="https://github.com/Ruushy/Library_managment_system" target="_blank" class="project-link">View Project <i class="fab fa-github"></i></a>
+                        <h3 data-translate="projects.library">Library Management System</h3>
+                        <p data-translate="projects.libraryDesc">Discover our Library Management System, a comprehensive solution designed to streamline library resources and enhance patron experience. It offers efficient book tracking, seamless borrowing, and returning processes.</p>
+                        <a href="https://github.com/Ruushy/Library_managment_system" target="_blank" class="project-link">
+                            <span data-translate="projects.viewProject">View Project</span> <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Food Order System</h3>
-                        <p>Experience our Food Order System, a user-friendly platform that simplifies the food ordering process.</p>
-                        <a href="https://github.com/Ruushy/Food_Order-System/" target="_blank" class="project-link">View Project <i class="fab fa-github"></i></a>
+                        <h3 data-translate="projects.foodOrder">Food Order System</h3>
+                        <p data-translate="projects.foodDesc">Experience our Food Order System, a user-friendly platform that simplifies the food ordering process.</p>
+                        <a href="https://github.com/Ruushy/Food_Order-System/" target="_blank" class="project-link">
+                            <span data-translate="projects.viewProject">View Project</span> <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -680,7 +763,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Abdi Wali Ahmed. All Rights Reserved.</p>
+                <p data-translate="footer.copyright">&copy; 2025 Abdi Wali Ahmed. All Rights Reserved.</p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/arkani659/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="https://github.com/Ruushy" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
@@ -691,8 +774,284 @@
     </footer>
 
     <script>
-        // DOM Elements
+        // Translation data
+        const translations = {
+            en: {
+                nav: {
+                    home: "Home",
+                    about: "About",
+                    skills: "Skills",
+                    resume: "Resume",
+                    projects: "Projects"
+                },
+                hero: {
+                    greeting: "Hello, I am",
+                    title: "Web Developer | Software Engineer"
+                },
+                about: {
+                    title: "About Me",
+                    whoAmI: "Who am I?",
+                    paragraph1: "Enthusiastic Computer Science graduate from the University of Somalia (UNISO), with a robust foundation in software development and network analysis. Skilled in developing web applications using Django and adept at network scanning and vulnerability assessment with tools like Nmap, honed through academic training and self-directed online courses.",
+                    paragraph2: "I have extensive knowledge in developing web applications using the Python framework Django and managing databases with MySQL. Additionally, I have a solid background in building desktop applications using the C# and Java programming languages.",
+                    paragraph3: "Currently expanding expertise in cybersecurity through active learning, I bring a proactive approach to problem-solving and a passion for technology, eager to contribute to innovative and secure software solutions.",
+                    personalInfo: "Personal Info",
+                    email: "Email:",
+                    phone: "Phone:",
+                    location: "Location:",
+                    locationValue: "Somalia, Mogadishu"
+                },
+                skills: {
+                    title: "My Skills",
+                    technical: "Technical Skills",
+                    webDev: "Web Development",
+                    django: "Django Framework",
+                    mysql: "MySQL Database",
+                    desktop: "Desktop Application Development",
+                    csharp: "C# Programming",
+                    java: "Java Programming",
+                    git: "Version Control (Git)",
+                    network: "Network Scanning & Security",
+                    cyber: "Cybersecurity (Actively Learning)",
+                    languages: "Languages",
+                    arabic: "Arabic",
+                    somali: "Somali",
+                    english: "English"
+                },
+                resume: {
+                    title: "My Resume",
+                    education: "Education",
+                    degree: "Bachelor of Computer Science",
+                    university: "University of Somalia (UNISO), Faculty of Computer Science",
+                    degreeDesc: "Developed a strong foundation in programming, software development, and IT systems through rigorous coursework.",
+                    cyberTraining: "Cybersecurity Training (In Progress)",
+                    cyberDate: "February 2025 - Present",
+                    cyberInstitution: "Acyberschool Secure+ Certification Foundation",
+                    cyberDesc: "Actively learning cybersecurity fundamentals, including network security, threat analysis, and risk management.",
+                    expertise: "Expertise",
+                    gitTitle: "Git and GitHub",
+                    gitDesc: "With my certification in Git and GitHub, I possess a strong understanding of version control, branching, merging, and collaborating with teams. These skills enable me to efficiently manage code repositories, streamline development workflows, and facilitate seamless collaboration among team members."
+                },
+                projects: {
+                    title: "My Projects",
+                    studentSystem: "Student Management System",
+                    studentDesc: "Introducing my Student Management System, a modern and intuitive solution for educational institutions. With advanced features and seamless integration, it revolutionizes student data management and administration processes.",
+                    chatbot: "Intelligent Chatbot",
+                    chatbotDesc: "A sophisticated chatbot application built using Django, designed to provide seamless user interaction and support. This project leverages natural language processing to understand and respond to user queries effectively.",
+                    library: "Library Management System",
+                    libraryDesc: "Discover our Library Management System, a comprehensive solution designed to streamline library resources and enhance patron experience. It offers efficient book tracking, seamless borrowing, and returning processes.",
+                    foodOrder: "Food Order System",
+                    foodDesc: "Experience our Food Order System, a user-friendly platform that simplifies the food ordering process.",
+                    viewProject: "View Project"
+                },
+                footer: {
+                    copyright: "© 2025 Abdi Wali Ahmed. All Rights Reserved."
+                }
+            },
+            ar: {
+                nav: {
+                    home: "الرئيسية",
+                    about: "نبذة عني",
+                    skills: "المهارات",
+                    resume: "السيرة الذاتية",
+                    projects: "المشاريع"
+                },
+                hero: {
+                    greeting: "مرحباً، أنا",
+                    title: "مطور ويب | مهندس برمجيات"
+                },
+                about: {
+                    title: "نبذة عني",
+                    whoAmI: "من أنا؟",
+                    paragraph1: "خريج متحمس في علوم الحاسوب من جامعة الصومال (UNISO)، مع أساس قوي في تطوير البرمجيات وتحليل الشبكات. ماهر في تطوير تطبيقات الويب باستخدام Django وبارع في مسح الشبكات وتقييم الثغرات الأمنية باستخدام أدوات مثل Nmap، تم صقلها من خلال التدريب الأكاديمي والدورات الذاتية عبر الإنترنت.",
+                    paragraph2: "لدي معرفة واسعة في تطوير تطبيقات الويب باستخدام إطار عمل Python Django وإدارة قواعد البيانات باستخدام MySQL. بالإضافة إلى ذلك، لدي خلفية قوية في بناء تطبيقات سطح المكتب باستخدام لغات البرمجة C# و Java.",
+                    paragraph3: "أقوم حالياً بتوسيع خبرتي في الأمن السيبراني من خلال التعلم النشط، أجلب نهجاً استباقياً لحل المشكلات وشغفاً بالتكنولوجيا، متحمس للمساهمة في حلول البرمجيات المبتكرة والآمنة."
+                },
+                skills: {
+                    title: "مهاراتي",
+                    technical: "المهارات التقنية",
+                    webDev: "تطوير الويب",
+                    django: "إطار عمل Django",
+                    mysql: "قاعدة بيانات MySQL",
+                    desktop: "تطوير تطبيقات سطح المكتب",
+                    csharp: "برمجة C#",
+                    java: "برمجة Java",
+                    git: "التحكم في الإصدارات (Git)",
+                    network: "مسح الشبكات والأمان",
+                    cyber: "الأمن السيبراني (تعلم نشط)",
+                    languages: "اللغات",
+                    arabic: "العربية",
+                    somali: "الصومالية",
+                    english: "الإنجليزية"
+                },
+                resume: {
+                    title: "سيرتي الذاتية",
+                    education: "التعليم",
+                    degree: "بكالوريوس علوم الحاسوب",
+                    university: "جامعة الصومال (UNISO)، كلية علوم الحاسوب",
+                    degreeDesc: "طورت أساساً قوياً في البرمجة وتطوير البرمجيات وأنظمة تكنولوجيا المعلومات من خلال المناهج الدراسية الصارمة.",
+                    cyberTraining: "تدريب الأمن السيبراني (قيد التقدم)",
+                    cyberDate: "فبراير 2025 - الحاضر",
+                    cyberInstitution: "مؤسسة شهادة Acyberschool Secure+",
+                    cyberDesc: "أتعلم بنشاط أساسيات الأمن السيبراني، بما في ذلك أمان الشبكات وتحليل التهديدات وإدارة المخاطر.",
+                    expertise: "الخبرة",
+                    gitTitle: "Git و GitHub",
+                    gitDesc: "مع شهادتي في Git و GitHub، أمتلك فهماً قوياً للتحكم في الإصدارات والتفرع والدمج والتعاون مع الفرق. هذه المهارات تمكنني من إدارة مستودعات الكود بكفاءة وتبسيط سير عمل التطوير وتسهيل التعاون السلس بين أعضاء الفريق."
+                },
+                projects: {
+                    title: "مشاريعي",
+                    studentSystem: "نظام إدارة الطلاب",
+                    studentDesc: "أقدم نظام إدارة الطلاب الخاص بي، حل حديث وبديهي للمؤسسات التعليمية. مع الميزات المتقدمة والتكامل السلس، يحدث ثورة في إدارة بيانات الطلاب وعمليات الإدارة.",
+                    chatbot: "روبوت محادثة ذكي",
+                    chatbotDesc: "تطبيق روبوت محادثة متطور مبني باستخدام Django، مصمم لتوفير تفاعل ودعم سلس للمستخدم. يستفيد هذا المشروع من معالجة اللغة الطبيعية لفهم والاستجابة لاستفسارات المستخدمين بفعالية.",
+                    library: "نظام إدارة المكتبة",
+                    libraryDesc: "اكتشف نظام إدارة المكتبة الخاص بنا، حل شامل مصمم لتبسيط موارد المكتبة وتعزيز تجربة الرعاة. يوفر تتبع فعال للكتب وعمليات استعارة وإرجاع سلسة.",
+                    foodOrder: "نظام طلب الطعام",
+                    foodDesc: "اختبر نظام طلب الطعام الخاص بنا، منصة سهلة الاستخدام تبسط عملية طلب الطعام.",
+                    viewProject: "عرض المشروع"
+                },
+                footer: {
+                    copyright: "© 2025 عبدي والي أحمد. جميع الحقوق محفوظة."
+                }
+            },
+            so: {
+                nav: {
+                    home: "Guriga",
+                    about: "Iga",
+                    skills: "Xirfadaha",
+                    resume: "Taariikhdayda",
+                    projects: "Mashaariicda"
+                },
+                hero: {
+                    greeting: "Salaan, waxaan ahay",
+                    title: "Horumariye Websaydka | Injineer Software"
+                },
+                about: {
+                    title: "Iga",
+                    whoAmI: "Yaan ahay?",
+                    paragraph1: "Qof xamaasad leh oo ka qalin jabiyay Sayniska Kombuyuutarka ee Jaamacadda Soomaaliya (UNISO), oo leh aasaas xoog leh oo ku saabsan horumarinta software-ka iyo falanqaynta shabakadaha. Xirfad u leh horumarinta barnaamijyada websaydka isagoo adeegsanaya Django wuxuuna ku fiican yahay baaritaanka shabakadaha iyo qiimaynta nuglaanta adeegsiga qalabka sida Nmap, oo la hagaajiyay tababar waxbarasho iyo koorsooyin keli ah oo internetka ah.",
+                    paragraph2: "Waxaan leeyahay aqoon ballaaran oo ku saabsan horumarinta barnaamijyada websaydka anigoo isticmaalaya Django framework-ka Python-ka iyo maaraynta xogta MySQL. Intaa waxaa dheer, waxaan leeyahay asal adag oo ku saabsan dhisidda barnaamijyada desktop-ka anigoo isticmaalaya luuqadaha barnaamijka C# iyo Java.",
+                    paragraph3: "Hadda waxaan ballaarinayaa khibradayda amniga cyber-ka iyada oo aan si firfircoon u baranayo, waxaan keenayaa hab horudhac ah oo xalinta dhibaatooyinka ah iyo xamaasad teknoolajiyada ah, waxaanan diyaar u ahay inaan gacan ka geysto xalalka software-ka ee hal-abuurka leh ee ammaan ah."
+                },
+                skills: {
+                    title: "Xirfadahayga",
+                    technical: "Xirfadaha Farsamada",
+                    webDev: "Horumarinta Websaydka",
+                    django: "Django Framework",
+                    mysql: "Xogta MySQL",
+                    desktop: "Horumarinta Barnaamijyada Desktop-ka",
+                    csharp: "Barnaamijka C#",
+                    java: "Barnaamijka Java",
+                    git: "Xakamaynta Noocyada (Git)",
+                    network: "Baaritaanka Shabakadaha & Amniga",
+                    cyber: "Amniga Cyber (Si Firfircoon u Baranaya)",
+                    languages: "Luuqadaha",
+                    arabic: "Carabi",
+                    somali: "Soomaali",
+                    english: "Ingiriisi"
+                },
+                resume: {
+                    title: "Taariikhdayda",
+                    education: "Waxbarashada",
+                    degree: "Bakaloriyada Sayniska Kombuyuutarka",
+                    university: "Jaamacadda Soomaaliya (UNISO), Kulliyadda Sayniska Kombuyuutarka",
+                    degreeDesc: "Waxaan dhisay aasaas xoog leh oo ku saabsan barnaamijka, horumarinta software-ka iyo nidaamyada IT-ga iyada oo loo marayo manhajyo adag.",
+                    cyberTraining: "Tababarka Amniga Cyber (Socda)",
+                    cyberDate: "Febraayo 2025 - Hadda",
+                    cyberInstitution: "Acyberschool Secure+ Certification Foundation",
+                    cyberDesc: "Si firfircoon ayaan u baranayaa aasaaska amniga cyber, oo ay ku jiraan amniga shabakadaha, falanqaynta khataraha iyo maaraynta khataraha.",
+                    expertise: "Khibradda",
+                    gitTitle: "Git iyo GitHub",
+                    gitDesc: "Shahaadadayda Git iyo GitHub, waxaan leeyahay faham xoog leh oo ku saabsan xakamaynta noocyada, laanlaynta, isku dhafka iyo la shaqaynta kooxaha. Xirfadahan ayaa i awood siinaya inaan si hufan u maareeyo kaydka koodka, hagaajin socodka horumarinta iyo fududayn iskaashiga degdegga ah ee xubnaha kooxda."
+                },
+                projects: {
+                    title: "Mashaariicda",
+                    studentSystem: "Nidaamka Maaraynta Ardayda",
+                    studentDesc: "Soo bandhigayaa Nidaamka Maaraynta Ardayda, xal casri ah oo sahlan oo loogu talagalay hay'adaha waxbarashada. Sifooyinka horumarsan iyo isku dhafka degdegga ah, wuxuu beddelayaa maaraynta xogta ardayda iyo hawlaha maamulka.",
+                    chatbot: "Chatbot Caqli-gal ah",
+                    chatbotDesc: "Barnaamij chatbot oo horumarsan oo lagu dhisay Django, oo loogu talagalay inuu bixiyo isdhexgal iyo taageero degdeg ah oo isticmaale ah. Mashruucan wuxuu ka faa'iidaystaa farsamaynta luqadda dabiiciga ah si uu u fahmo oo ugu jawaabo su'aalaha isticmaalayaasha si wax ku ool ah.",
+                    library: "Nidaamka Maaraynta Maktabadda",
+                    libraryDesc: "Soo ogaada Nidaamka Maaraynta Maktabadda, xal dhamaystiran oo loogu talagalay fududaynta kheyraadka maktabadda iyo kobcinta khibradda dadka. Wuxuu bixiyaa raadraac hufan oo buugaag ah, amaahid degdeg ah, iyo hawlaha soo celinta.",
+                    foodOrder: "Nidaamka Dalabka Cuntada",
+                    foodDesc: "La kulmi Nidaamka Dalabka Cuntada, madal sahlan oo isticmaal ah oo fududeeya habka dalabka cuntada.",
+                    viewProject: "Eeg Mashruuca"
+                },
+                footer: {
+                    copyright: "© 2025 Cabdi Waali Axmed. Dhammaan Xuquuqda way Dhowran yihiin."
+                }
+            }
+        };
+
+        // Language functionality
+        let currentLanguage = localStorage.getItem('language') || 'en';
+
+        function updateLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update current language display
+            document.getElementById('currentLang').textContent = lang.toUpperCase();
+            
+            // Update active language option
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.lang === lang) {
+                    option.classList.add('active');
+                }
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+            
+            // Handle RTL for Arabic
+            if (lang === 'ar') {
+                document.body.classList.add('rtl');
+            } else {
+                document.body.classList.remove('rtl');
+            }
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.dataset.translate;
+                const translation = getNestedTranslation(translations[lang], key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+        }
+
+        function getNestedTranslation(obj, key) {
+            return key.split('.').reduce((o, k) => o && o[k], obj);
+        }
+
+        // Initialize language on page load
         document.addEventListener('DOMContentLoaded', function() {
+            updateLanguage(currentLanguage);
+            
+            // Language selector functionality
+            const languageBtn = document.getElementById('languageBtn');
+            const languageDropdown = document.getElementById('languageDropdown');
+            
+            languageBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                languageDropdown.classList.toggle('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                languageDropdown.classList.remove('active');
+            });
+            
+            // Language option selection
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const selectedLang = option.dataset.lang;
+                    updateLanguage(selectedLang);
+                    languageDropdown.classList.remove('active');
+                });
+            });
+
+            // Existing functionality
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             const navLinksItems = document.querySelectorAll('.nav-links a');
