@@ -6,37 +6,38 @@
   <title>Abdi Wali Ahmed | Developer & Cybersecurity Enthusiast</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     :root {
       --font: 'Poppins', sans-serif;
-      --transition: all 0.4s ease;
+      --transition: all 0.35s ease;
     }
 
     /* Light Theme */
     [data-theme="light"] {
-      --bg: #f8f9fa;
-      --text: #1a1a1a;
+      --bg: #f9fafb;
       --card: #ffffff;
-      --border: #e9ecef;
-      --primary: #007bff;
-      --secondary: #6c757d;
-      --accent: #28a745;
-      --shadow: 0 5px 15px rgba(0,0,0,0.08);
+      --text: #111827;
+      --text-light: #6b7280;
+      --border: #e5e7eb;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
 
     /* Dark Theme */
     [data-theme="dark"] {
-      --bg: #121212;
-      --text: #e0e0e0;
-      --card: #1e1e1e;
-      --border: #333;
-      --primary: #0d6efd;
-      --secondary: #adb5bd;
-      --accent: #2fb845;
-      --shadow: 0 5px 20px rgba(0,0,0,0.3);
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+      --border: #334155;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --shadow: 0 6px 24px rgba(0,0,0,0.4);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: var(--font);
       background: var(--bg);
@@ -44,285 +45,204 @@
       line-height: 1.7;
       transition: var(--transition);
     }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* Header */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
     header {
       background: var(--card);
-      color: var(--text);
-      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+      box-shadow: var(--shadow);
       transition: var(--transition);
     }
-    nav { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
-    .nav-links { display: flex; gap: 2rem; }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+    }
+
     .nav-links a {
-      color: var(--text);
+      color: var(--text-light);
       text-decoration: none;
       font-weight: 500;
       transition: 0.3s;
-      opacity: 0.9;
     }
-    .nav-links a:hover { color: var(--primary); opacity: 1; }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
 
     .controls {
       display: flex;
       gap: 1rem;
       align-items: center;
     }
-    .lang-toggle, .theme-toggle {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 50px;
+
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-light);
+      padding: 8px 14px;
+      border-radius: 50%;
       cursor: pointer;
-      font-size: 0.9rem;
-      transition: 0.3s;
-    }
-    .lang-toggle:hover, .theme-toggle:hover {
-      background: #0a58ca;
-      transform: translateY(-2px);
+      font-size: 1.1rem;
+      transition: var(--transition);
     }
 
-    /* Hero */
-    .hero {
-      padding: 130px 0 90px;
-      text-align: center;
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: white;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; opacity: 0.95; }
-    .btn {
-      display: inline-block;
+    .theme-toggle:hover {
       background: var(--primary);
       color: white;
-      padding: 12px 32px;
+      border-color: var(--primary);
+    }
+
+    .hero {
+      padding: 140px 0 100px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--card), rgba(30,41,59,0.4));
+    }
+
+    .hero h1 {
+      font-size: 3.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 720px;
+      margin: 0 auto 2.2rem;
+      color: var(--text-light);
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: 14px 34px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      margin: 0 10px;
       transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(37,99,235,0.25);
     }
+
     .btn:hover {
+      background: var(--primary-hover);
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+      box-shadow: 0 10px 25px rgba(37,99,235,0.35);
     }
+
     .btn-outline {
       background: transparent;
-      border: 2px solid white;
-      color: white;
-    }
-    .btn-outline:hover {
-      background: white;
+      border: 2px solid var(--primary);
       color: var(--primary);
     }
 
-    /* Section */
-    section { padding: 90px 0; }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    section { padding: 100px 0; }
+
     .section-title {
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
+      font-size: 2.6rem;
+      margin-bottom: 3.5rem;
       position: relative;
-      color: var(--text);
     }
+
     .section-title::after {
       content: '';
-      width: 80px;
+      width: 90px;
       height: 4px;
       background: var(--primary);
       display: block;
-      margin: 12px auto 0;
+      margin: 15px auto 0;
       border-radius: 2px;
     }
 
-    /* About */
     .about-text {
-      font-size: 1.1rem;
-      max-width: 850px;
-      margin: 0 auto 2rem;
+      font-size: 1.15rem;
+      max-width: 860px;
+      margin: 0 auto 2.5rem;
       text-align: center;
-      opacity: 0.92;
-      line-height: 1.8;
+      line-height: 1.9;
+      color: var(--text-light);
     }
 
-    /* Skills */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .skill-card {
+    .skills-grid, .projects-grid, .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-card, .project-card, .book-card {
       background: var(--card);
       padding: 2rem;
       border-radius: 16px;
-      text-align: center;
-      transition: var(--transition);
       border: 1px solid var(--border);
+      transition: var(--transition);
     }
-    .skill-card:hover {
-      transform: translateY(-12px);
-      box-shadow: var(--shadow);
+
+    .skill-card:hover, .project-card:hover, .book-card:hover {
+      transform: translateY(-10px);
       border-color: var(--primary);
+      box-shadow: var(--shadow);
     }
-    .skill-card i {
+
+    .skill-card i, .book-card i {
       font-size: 2.8rem;
       color: var(--primary);
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
-    .skill-card h3 { margin-bottom: 0.8rem; color: var(--text); }
-    .skill-card p { color: var(--secondary); font-size: 0.95rem; }
 
-    /* Projects */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-    .project-card {
-      background: var(--card);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: var(--transition);
-      border: 1px solid var(--border);
-    }
-    .project-card:hover {
-      transform: translateY(-12px);
-      box-shadow: var(--shadow);
-    }
     .project-img {
-      height: 180px;
-      background: linear-gradient(45deg, #2c3e50, #34495e);
+      height: 200px;
+      background: #0f172a;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3.5rem;
-      color: #95a5a6;
+      font-size: 4rem;
+      color: #475569;
+      border-bottom: 1px solid var(--border);
     }
-    .project-info { padding: 1.6rem; }
-    .project-info h3 { margin-bottom: 0.6rem; color: var(--text); }
-    .project-info p { color: var(--secondary); font-size: 0.95rem; margin-bottom: 1rem; }
-    .project-links a {
-      color: var(--primary);
-      font-weight: 500;
-      text-decoration: none;
-      margin-right: 1rem;
-      font-size: 0.95rem;
-    }
-    .project-links a:hover { text-decoration: underline; }
 
-    /* Books */
-    .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; }
-    .book-card {
-      background: var(--card);
-      padding: 1.8rem;
-      border-radius: 16px;
-      text-align: center;
-      transition: var(--transition);
-      border: 1px solid var(--border);
-    }
-    .book-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow);
-    }
-    .book-card i {
-      font-size: 2.8rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    .book-card h4 { margin-bottom: 0.6rem; color: var(--text); }
-    .book-card p { color: var(--secondary); font-size: 0.92rem; margin-bottom: 1rem; }
-    .book-card a {
-      color: var(--primary);
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .book-card a:hover { text-decoration: underline; }
-
-    /* Education */
-    .education-timeline {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .education-timeline::before {
-      content: '';
-      position: absolute;
-      width: 4px;
-      background: var(--border);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -2px;
-      border-radius: 2px;
-    }
-    .edu-item {
-      padding: 1.2rem 2.5rem;
-      position: relative;
-      width: 50%;
-    }
-    .edu-item::after {
-      content: '';
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      background: var(--primary);
-      border: 4px solid var(--card);
-      border-radius: 50%;
-      top: 22px;
-      box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
-      transition: var(--transition);
-    }
-    .edu-item.left { left: 0; text-align: right; padding-right: 4rem; }
-    .edu-item.left::after { right: -9px; }
-    .edu-item.right { left: 50%; text-align: left; padding-left: 4rem; }
-    .edu-item.right::after { left: -9px; }
-    .edu-content {
-      background: var(--card);
+    .project-info, .book-card {
       padding: 1.6rem;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
     }
-    .edu-content h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .edu-content h4 { color: var(--text); margin-bottom: 0.5rem; }
-    .edu-content p { color: var(--secondary); font-size: 0.95rem; }
 
-    /* Contact */
-    .contact-info { text-align: center; font-size: 1.1rem; }
-    .contact-info a {
-      color: var(--primary);
-      margin: 0 1rem;
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .contact-info a:hover { text-decoration: underline; }
-
-    /* Footer */
     footer {
       background: var(--card);
-      color: var(--secondary);
+      padding: 3rem 0 2rem;
       text-align: center;
-      padding: 2.5rem 0;
-      margin-top: 4rem;
       border-top: 1px solid var(--border);
+      color: var(--text-light);
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .hero h1 { font-size: 2.3rem; }
-      .hero { clip-path: none; padding: 110px 0 70px; }
-      .education-timeline::before { left: 20px; }
-      .edu-item { width: 100%; padding-left: 55px; padding-right: 0; text-align: left !important; }
-      .edu-item.left, .edu-item.right { left: 0 !important; }
-      .edu-item::after { left: 11px !important; }
-      .controls { flex-direction: column; gap: 0.8rem; }
+      .hero h1 { font-size: 2.5rem; }
+      .section-title { font-size: 2.2rem; }
     }
   </style>
 </head>
-<body data-theme="dark">
+<body>
 
   <!-- Header -->
   <header>
@@ -338,8 +258,7 @@
           <a href="#contact">Contact</a>
         </div>
         <div class="controls">
-          <button class="lang-toggle" onclick="toggleLang()">Soomaali</button>
-          <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Light/Dark">
+          <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
             <i class="fas fa-moon"></i>
           </button>
         </div>
@@ -351,7 +270,7 @@
   <section class="hero">
     <div class="container">
       <h1>Abdi Wali Ahmed</h1>
-      <p>Full-Stack Developer | Cybersecurity Enthusiast | Somali Tech Educator</p>
+      <p>Full-Stack Developer | Cybersecurity Enthusiast</p>
       <a href="cv.pdf" class="btn" download>Download CV</a>
       <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
@@ -360,9 +279,9 @@
   <!-- About -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title" data-en="About Me" data-so="Nolosheyda">About Me</h2>
-      <p class="about-text" data-en="Enthusiastic and detail-oriented Computer Science graduate from the University of Somalia (UNISO), with a strong academic and practical background in software engineering, network analysis, and cybersecurity. Skilled in designing and developing scalable web applications using Django and the MERN stack (MongoDB, Express.js, React, Node.js). Proficient in penetration testing techniques, including network scanning, vulnerability assessment, and ethical exploitation. Passionate about leveraging technology to build secure, efficient, and innovative solutions, while continuously expanding knowledge in cybersecurity and advanced software development." data-so="Arday ka qalin jabiyay Jaamacadda Soomaaliya (UNISO), oo leh aasaas tacliin iyo mid wax ku ool ah oo adag oo ku saabsan injineernimada software-ka, falanqaynta shabakadaha, iyo amniga cyber. Xirfad u leh naqshadaynta iyo horumarinta barnaamijyada websaydka ee la miisaami karo iyadoo la isticmaalayo Django iyo MERN stack (MongoDB, Express.js, React, Node.js). Ku xeel dheer farsamooyinka tijaabinta galitaanka, oo ay ku jiraan baaritaanka shabakadaha, qiimeynta daciifnimada, iyo ka faa’iidaynta anshaxa. Anigoo xiisaynaya isticmaalka tignoolajiyada si loo dhiso xalal ammaan ah, hufan, iyo cusub, anigoo si joogto ah u ballaarinaya aqoonta amniga cyber iyo horumarinta software-ka ee sare.">
-        Enthusiastic and detail-oriented Computer Science graduate...
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">
+        Enthusiastic and detail-oriented Computer Science graduate from the University of Somalia (UNISO), with a strong academic and practical background in software engineering, network analysis, and cybersecurity. Skilled in designing and developing scalable web applications using Django and the MERN stack (MongoDB, Express.js, React, Node.js). Proficient in penetration testing techniques, including network scanning, vulnerability assessment, and ethical exploitation. Passionate about leveraging technology to build secure, efficient, and innovative solutions, while continuously expanding knowledge in cybersecurity and advanced software development.
       </p>
     </div>
   </section>
@@ -370,37 +289,37 @@
   <!-- Skills -->
   <section id="skills">
     <div class="container">
-      <h2 class="section-title" data-en="Technical Skills" data-so="Xirfadaha Farsamada">Technical Skills</h2>
+      <h2 class="section-title">Technical Skills</h2>
       <div class="skills-grid">
         <div class="skill-card">
           <i class="fas fa-code"></i>
-          <h3 data-en="Web Development" data-so="Dhisida Websaydka">Web Development</h3>
-          <p>Django, MERN Stack (MongoDB, Express, React, Node.js)</p>
+          <h3>Web Development</h3>
+          <p>Django • MERN Stack (MongoDB, Express, React, Node.js)</p>
         </div>
         <div class="skill-card">
           <i class="fas fa-shield-alt"></i>
-          <h3 data-en="Web Penetration Testing" data-so="Tijaabinta Galitaanka Websaydka">Web Penetration Testing</h3>
-          <p>Scanning, Vulnerability ID, Ethical Exploitation, Fixing</p>
+          <h3>Web Penetration Testing</h3>
+          <p>Scanning • Vulnerability Identification • Ethical Exploitation • Fixing</p>
         </div>
         <div class="skill-card">
           <i class="fas fa-database"></i>
-          <h3 data-en="Database" data-so="Xogta">Database</h3>
+          <h3>Database</h3>
           <p>MySQL</p>
         </div>
         <div class="skill-card">
           <i class="fas fa-network-wired"></i>
-          <h3 data-en="Network Security" data-so="Amniga Shabakadaha">Network Security</h3>
+          <h3>Network Security</h3>
           <p>Network Scanning & Vulnerability Assessment</p>
         </div>
         <div class="skill-card">
-          <i class="fas fa-git-alt"></i>
-          <h3 data-en="Version Control" data-so="Xakamaynta Nooca">Version Control</h3>
-          <p>Git, GitHub</p>
+          <i class="fas fa-code-branch"></i>
+          <h3>Version Control</h3>
+          <p>Git • GitHub</p>
         </div>
         <div class="skill-card">
           <i class="fas fa-brain"></i>
-          <h3 data-en="Cybersecurity" data-so="Amniga Cyber">Cybersecurity</h3>
-          <p>Actively Learning (Acyberschool Secure+)</p>
+          <h3>Cybersecurity</h3>
+          <p>Actively Learning</p>
         </div>
       </div>
     </div>
@@ -409,36 +328,41 @@
   <!-- Projects -->
   <section id="projects">
     <div class="container">
-      <h2 class="section-title" data-en="Projects" data-so="Mashruucyo">Projects</h2>
+      <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-img"><i class="fas fa-cash-register"></i></div>
           <div class="project-info">
             <h3>Bakaaro POS</h3>
             <p>Point of Sale system built with MERN stack for efficient transaction and inventory management.</p>
-            <div class="project-links">
-              <a href="https://www.youtube.com/watch?v=TUGLPrXK8LI" target="_blank">Demo</a>
-            </div>
+            <a href="https://www.youtube.com/watch?v=TUGLPrXK8LI" target="_blank">View Demo</a>
           </div>
         </div>
+
         <div class="project-card">
           <div class="project-img"><i class="fas fa-user-graduate"></i></div>
           <div class="project-info">
             <h3>Student Management System</h3>
-            <p>Web app using Django and MySQL to manage student records and admin tasks.</p>
-            <div class="project-links">
-              <a href="https://github.com/Ruushy/Student-management-system-in-Django-and-mysql" target="_blank">GitHub</a>
-            </div>
+            <p>Web application using Django and MySQL to manage student records and administrative tasks.</p>
+            <a href="https://github.com/Ruushy/Student-management-system-in-Django-and-mysql" target="_blank">View on GitHub</a>
           </div>
         </div>
+
         <div class="project-card">
           <div class="project-img"><i class="fas fa-robot"></i></div>
           <div class="project-info">
             <h3>Intelligent Chatbot</h3>
             <p>NLP-powered chatbot built with Django for seamless user interaction.</p>
-            <div class="project-links">
-              <a href="https://github.com/Ruushy/Intelligent-Chatbot-in-django" target="_blank">GitHub</a>
-            </div>
+            <a href="https://github.com/Ruushy/Intelligent-Chatbot-in-django" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img"><i class="fas fa-search"></i></div>
+          <div class="project-info">
+            <h3>BaareWeb</h3>
+            <p>BaareWeb is a security scanning website designed to identify vulnerabilities in target websites and generate detailed reports. It performs various scans to detect common security issues, misconfigurations, and potential weaknesses.<br>Built with Django, HTML, CSS, Bootstrap, and JavaScript.</p>
+            <a href="https://github.com/Ruushy/BaareWeb" target="_blank">View on GitHub</a>
           </div>
         </div>
       </div>
@@ -448,25 +372,37 @@
   <!-- Books -->
   <section id="books">
     <div class="container">
-      <h2 class="section-title" data-en="Authored Books" data-so="Buugagga La Qoray">Authored Books</h2>
+      <h2 class="section-title">Authored Books</h2>
       <div class="books-grid">
         <div class="book-card">
           <i class="fas fa-book"></i>
-          <h4 data-en="Nmap in Somali" data-so="Nmap ee Af-Soomaali">Nmap in Somali</h4>
-          <p data-en="Small educational book on Nmap for Somali learners." data-so="Buug yar oo waxbarasho oo ku saabsan Nmap.">Small educational book on Nmap for Somali learners.</p>
+          <h4>Nmap in Somali</h4>
+          <p>Small educational book on Nmap for Somali learners</p>
           <a href="https://t.me/hacking_akhlaaqyin/13" target="_blank">Read</a>
         </div>
         <div class="book-card">
           <i class="fas fa-shield-alt"></i>
-          <h4 data-en="Fundamentals of Cybersecurity" data-so="Aasaaska Cybersecurity">Aasaaska Cybersecurity</h4>
-          <p data-en="Beginner guide to cybersecurity in Somali." data-so="Hagaha bilowga ee amniga cyber ee af-Soomaali.">Beginner guide to cybersecurity in Somali.</p>
+          <h4>Fundamentals of Cybersecurity</h4>
+          <p>Beginner guide to cybersecurity in Somali</p>
           <a href="https://t.me/hacking_akhlaaqyin/21" target="_blank">Read</a>
         </div>
         <div class="book-card">
           <i class="fas fa-network-wired"></i>
-          <h4 data-en="Networking Basics in 30 Days" data-so="Aasaaska Networking: Ku Baro 30 Maalin">Aasaaska Networking: Ku Baro 30 Maalin</h4>
-          <p data-en="30-day networking course for cybersecurity students." data-so="Koorso 30-maalin ah oo shabakadaha loogu talagalay ardayda amniga cyber.">30-day networking course for cybersecurity students.</p>
+          <h4>Networking Basics in 30 Days</h4>
+          <p>30-day networking course for cybersecurity students</p>
           <a href="https://t.me/hacking_akhlaaqyin/22" target="_blank">Read</a>
+        </div>
+        <div class="book-card">
+          <i class="fas fa-database"></i>
+          <h4>SQL Injection</h4>
+          <p>Educational book on SQL Injection in Somali</p>
+          <a href="https://t.me/hacking_akhlaaqyin/33" target="_blank">Read</a>
+        </div>
+        <div class="book-card">
+          <i class="fas fa-code"></i>
+          <h4>Cross Site Scripting (XSS)</h4>
+          <p>Educational book on Cross Site Scripting in Somali</p>
+          <a href="https://t.me/hacking_akhlaaqyin/35" target="_blank">Read</a>
         </div>
       </div>
     </div>
@@ -475,61 +411,37 @@
   <!-- Education -->
   <section id="education">
     <div class="container">
-      <h2 class="section-title" data-en="Education" data-so="Waxbarasho">Education</h2>
-      <div class="education-timeline">
-        <div class="edu-item right">
-          <div class="edu-content">
-            <h3>2025 – Present</h3>
-            <h4 data-en="Cybersecurity Training" data-so="Tababarka Amniga Cyber">Cybersecurity Training</h4>
-            <p>Acyberschool Secure+ Certification Foundation</p>
-          </div>
+      <h2 class="section-title">Education</h2>
+      <div style="max-width:900px; margin:0 auto;">
+        <div style="margin:2.5rem 0; padding:2rem; background:var(--card); border-radius:16px; border:1px solid var(--border);">
+          <h3 style="color:var(--primary);">2025 – Present</h3>
+          <h4>Diploma in Cybersecurity</h4>
+          <p>City University, Mogadishu</p>
         </div>
-        <div class="edu-item left">
-          <div class="edu-content">
-            <h3>2025</h3>
-            <h4 data-en="Web Penetration Testing" data-so="Tijaabinta Galitaanka Websaydka">Web Penetration Testing</h4>
-            <p>Self-Directed Learning (Online, incl. Udemy)</p>
-          </div>
-        </div>
-        <div class="edu-item right">
-          <div class="edu-content">
-            <h3>2025</h3>
-            <h4 data-en="MERN Stack Development Training" data-so="Tababarka Horumarinta MERN Stack">MERN Stack Development Training</h4>
-            <p>City University, Mogadishu</p>
-          </div>
-        </div>
-        <div class="edu-item left">
-          <div class="edu-content">
-            <h3>2024</h3>
-            <h4 data-en="Bachelor of Computer Science" data-so="Bachelor ee Sayniska Kombiyuutarka">Bachelor of Computer Science</h4>
-            <p>University of Somalia (UNISO)</p>
-          </div>
-        </div>
-        <div class="edu-item right">
-          <div class="edu-content">
-            <h3>2019</h3>
-            <h4 data-en="Imam Nawawi School" data-so="Dugsiga Imaam Nawawi">Imam Nawawi School</h4>
-            <p>High School Graduation</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title" data-en="Get in Touch" data-so="La Xidhiidh">Get in Touch</h2>
-      <div class="contact-info">
-        <p>
-          <a href="mailto:arkani6563@gmail.com">arkani6563@gmail.com</a> | 
-          <a href="tel:+252619987794">+252 619 987 794</a>
-        </p>
-        <p>
-          <a href="https://github.com/Ruushy" target="_blank">GitHub</a> | 
-          <a href="https://www.youtube.com/channel/UCEA69mCoUj1nqXyG8Bh2PsQ" target="_blank">YouTube</a> | 
-          <a href="https://instagram.com/arkani659" target="_blank">Instagram</a>
-        </p>
+        <div style="margin:2.5rem 0; padding:2rem; background:var(--card); border-radius:16px; border:1px solid var(--border);">
+          <h3 style="color:var(--primary);">2025</h3>
+          <h4>Web Penetration Testing</h4>
+          <p>Self-Directed Learning (Online, incl. Udemy)</p>
+        </div>
+
+        <div style="margin:2.5rem 0; padding:2rem; background:var(--card); border-radius:16px; border:1px solid var(--border);">
+          <h3 style="color:var(--primary);">2025</h3>
+          <h4>MERN Stack Development Training</h4>
+          <p>City University, Mogadishu</p>
+        </div>
+
+        <div style="margin:2.5rem 0; padding:2rem; background:var(--card); border-radius:16px; border:1px solid var(--border);">
+          <h3 style="color:var(--primary);">2024</h3>
+          <h4>Bachelor of Computer Science</h4>
+          <p>University of Somalia (UNISO)</p>
+        </div>
+
+        <div style="margin:2.5rem 0; padding:2rem; background:var(--card); border-radius:16px; border:1px solid var(--border);">
+          <h3 style="color:var(--primary);">2019</h3>
+          <h4>Imam Nawawi School</h4>
+          <p>High School Graduation</p>
+        </div>
       </div>
     </div>
   </section>
@@ -542,47 +454,22 @@
   </footer>
 
   <script>
-    // Language Toggle
-    const langData = {
-      en: { /* same as before */ },
-      so: { /* same as before */ }
-    };
-
-    let currentLang = 'en';
-    const toggleBtn = document.querySelector('.lang-toggle');
-
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'so' : 'en';
-      toggleBtn.textContent = currentLang === 'en' ? 'Soomaali' : 'English';
-      updateContent();
-    }
-
-    function updateContent() {
-      document.querySelectorAll('[data-en]').forEach(el => {
-        const key = el.getAttribute('data-en');
-        el.textContent = currentLang === 'en' ? key : (langData.so[key] || key);
-      });
-      document.querySelectorAll('[data-so]').forEach(el => {
-        el.textContent = currentLang === 'so' ? el.getAttribute('data-so') : el.getAttribute('data-en');
-      });
-    }
-
     // Theme Toggle
-    const themeBtn = document.querySelector('.theme-toggle');
+    const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
 
     function toggleTheme() {
-      const current = body.getAttribute('data-theme');
-      const newTheme = current === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', newTheme);
-      themeBtn.innerHTML = newTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-      localStorage.setItem('theme', newTheme);
+      const current = body.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
+      themeToggle.innerHTML = next === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+      localStorage.setItem('theme', next);
     }
 
-    // Load saved theme
+    // Load saved theme or default to dark
     const savedTheme = localStorage.getItem('theme') || 'dark';
     body.setAttribute('data-theme', savedTheme);
-    themeBtn.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+    themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
