@@ -1,510 +1,928 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abdi Wali Ahmed — Field Report / Cybersecurity Engineer</title>
-<meta name="description" content="Abdi Wali Ahmed — Cybersecurity engineer, full-stack developer, and 5× published author bridging Somalia's security knowledge gap.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@500;700;900&family=Big+Shoulders+Display:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abdiwali Ahmed Abdisalam — Web Penetration Tester &amp; Bug Bounty Hunter</title>
+<meta name="description" content="Portfolio of Abdiwali Ahmed Abdisalam, a web application penetration tester, bug bounty hunter, and security tool developer building offensive-security automation from Mogadishu, Somalia." />
+<meta name="keywords" content="web penetration tester, bug bounty hunter, security researcher, offensive security, vulnerability research, security tool developer, Somalia cybersecurity, Abdiwali Ahmed Abdisalam" />
+<meta name="author" content="Abdiwali Ahmed Abdisalam" />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Abdiwali Ahmed Abdisalam — Web Penetration Tester & Bug Bounty Hunter" />
+<meta property="og:description" content="Web application penetration tester, bug bounty hunter, and security tool developer building offensive-security automation from Mogadishu, Somalia." />
+<meta property="og:image" content="og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Abdiwali Ahmed Abdisalam — Web Penetration Tester & Bug Bounty Hunter" />
+<meta name="twitter:description" content="Web application penetration tester, bug bounty hunter, and security tool developer building offensive-security automation from Mogadishu, Somalia." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Abdiwali Ahmed Abdisalam",
+  "jobTitle": "Web Penetration Tester · Bug Bounty Hunter · Full-Stack Developer",
+  "email": "mailto:arkani6563@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Mogadishu", "addressCountry": "SO" },
+  "sameAs": ["https://github.com/Ruushy", "https://youtube.com/@Ruushy", "https://t.me/hacking_akhlaaqyin"],
+  "knowsAbout": ["Web Application Penetration Testing", "Bug Bounty Hunting", "Vulnerability Research", "Security Automation", "OSINT", "Network Security"]
+}
+</script>
+
 <style>
-:root{
-  --paper:#EDEBE2; --paper2:#E2DFD3; --paperD:#D9D5C6;
-  --ink:#181913; --ink2:rgba(24,25,19,.58); --ink3:rgba(24,25,19,.38);
-  --line:rgba(24,25,19,.16); --line2:rgba(24,25,19,.28);
-  --red:#B21E33; --redT:rgba(178,30,51,.1);
-  --blue:#204A72; --blueT:rgba(32,74,114,.09);
-  --gold:#93711E; --goldT:rgba(147,113,30,.12);
-  --green:#1E7A45; --greenT:rgba(30,122,69,.1);
-  --stamp:#181913; --shadow:0 1px 0 rgba(24,25,19,.06);
-  --nb:rgba(237,235,226,0.86);
-}
-[data-theme="dark"]{
-  --paper:#111214; --paper2:#17181b; --paperD:#0c0d0f;
-  --ink:#EDEBE2; --ink2:rgba(237,235,226,.6); --ink3:rgba(237,235,226,.4);
-  --line:rgba(237,235,226,.14); --line2:rgba(237,235,226,.24);
-  --red:#E14C63; --redT:rgba(225,76,99,.12);
-  --blue:#7FADDD; --blueT:rgba(127,173,221,.1);
-  --gold:#D8B24E; --goldT:rgba(216,178,78,.12);
-  --green:#3DDC7A; --greenT:rgba(61,220,122,.1);
-  --stamp:#EDEBE2;
-  --nb:rgba(17,18,20,0.86);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;overflow-x:hidden;transition:background .3s,color .3s;min-height:100vh;
-  background-image:radial-gradient(var(--line) 1px, transparent 1px);
-  background-size:24px 24px; background-position:-12px -12px;
-}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.15;mix-blend-mode:multiply;
-  background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.03) 0,rgba(0,0,0,.03) 1px,transparent 1px,transparent 3px);
-}
-[data-theme="dark"] body::before{mix-blend-mode:screen;opacity:.08}
-.scan{position:fixed;left:0;right:0;height:140px;pointer-events:none;z-index:9997;
-  background:linear-gradient(180deg,transparent,var(--greenT) 45%,transparent);
-  animation:scandown 9s linear infinite;opacity:.6}
-@keyframes scandown{0%{top:-140px}100%{top:100vh}}
-@media(prefers-reduced-motion:reduce){.scan{display:none}}
+  :root{
+    --ink-50:#F4F6FB; --ink-100:#E7EAF3; --ink-200:#B7C0D6; --ink-300:#8B93A7;
+    --ink-400:#5B637A; --ink-500:#3A4257; --ink-600:#242B3D; --ink-700:#161C2C;
+    --ink-800:#0D1224; --ink-900:#070A15; --ink-950:#04060D;
+    --indigo:#6366F1; --violet:#8B5CF6; --cyan:#22D3EE;
+    --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif; --font-mono:'JetBrains Mono',monospace;
+    --shell-max:1152px;
+  }
 
-.hexwrap{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.hexwrap span{position:absolute;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--green);opacity:.14;white-space:nowrap;letter-spacing:.08em}
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink-950);
+    color:var(--ink-100);
+    font-family:var(--font-body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(99,102,241,0.08), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(139,92,246,0.07), transparent 40%);
+    background-attachment:fixed;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:var(--font-display); letter-spacing:-0.01em; color:var(--ink-50);}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ul{list-style:none;}
+  :focus-visible{outline:2px solid var(--indigo); outline-offset:3px; border-radius:4px;}
+  ::selection{background:rgba(99,102,241,.35); color:#fff;}
+  svg{display:block;}
 
-.term{border:1px solid var(--line2);background:var(--paper2);max-width:440px;margin-top:6px;font-family:'JetBrains Mono',monospace;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-.termbar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid var(--line2)}
-.termbar i{width:8px;height:8px;border-radius:50%;display:block}
-.termbar i:nth-child(1){background:#E1544A}.termbar i:nth-child(2){background:#E0A73B}.termbar i:nth-child(3){background:var(--green)}
-.termbar span{margin-left:auto;font-size:.58rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em}
-.termbody{padding:14px 16px;font-size:.72rem;line-height:1.85;color:var(--ink2)}
-.termbody .p{color:var(--green);font-weight:600}
-.termbody .out{color:var(--ink2)}
-.termbody .ok{color:var(--green)}
-.cursor{display:inline-block;width:6px;height:12px;background:var(--green);vertical-align:middle;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.mono{font-family:'JetBrains Mono',monospace}
-::selection{background:var(--red);color:var(--paper)}
-:focus-visible{outline:2px solid var(--red);outline-offset:3px}
-.w{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
-.sec{position:relative;z-index:1;padding:88px 0;border-bottom:1px solid var(--line)}
-.sec2{background:var(--paper2)}
+  .shell{max-width:var(--shell-max); margin:0 auto; padding:0 24px;}
+  section{padding:96px 0;}
+  @media(min-width:768px){ section{padding:128px 0;} }
 
-/* ---- nav ---- */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
-  padding:14px 24px;background:var(--nb);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);}
-.nm{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;color:var(--ink);letter-spacing:.01em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
-.nm .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px var(--redT);flex-shrink:0;animation:pulse 2s ease infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.nr{display:flex;align-items:center;gap:2px}
-.nr a{font-size:.66rem;color:var(--ink2);text-decoration:none;padding:6px 11px;border:1px solid transparent;transition:all .15s;font-weight:600;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.05em}
-.nr a:hover{color:var(--ink);border-color:var(--line2);background:var(--paper2)}
-.tbtn{width:28px;height:28px;border:1px solid var(--line2);background:transparent;color:var(--ink2);font-size:9px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;margin-left:6px;text-transform:uppercase;font-weight:700}
-.tbtn:hover{border-color:var(--red);color:var(--red)}
-.mb{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;background:none;border:none}
-.mb span{display:block;width:15px;height:2px;background:var(--ink);transition:all .25s}
-.mb.open span:nth-child(1){transform:rotate(45deg)translate(3px,4px)}
-.mb.open span:nth-child(2){opacity:0}
-.mb.open span:nth-child(3){transform:rotate(-45deg)translate(3px,-4px)}
-#menu{position:fixed;inset:0;background:var(--paper);z-index:99;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;padding:0 32px;transform:translateY(-100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
-#menu a{font-family:'Big Shoulders Display',sans-serif;font-size:2.1rem;font-weight:700;color:var(--ink);text-decoration:none;text-transform:uppercase;padding:6px 0;border-bottom:1px solid transparent;width:100%}
-#menu a:hover{border-color:var(--red);color:var(--red)}
-#menu .mn{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--ink3);margin-bottom:18px;text-transform:uppercase;letter-spacing:.1em}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--font-mono); font-size:12px; text-transform:uppercase;
+    letter-spacing:.2em; color:var(--cyan);
+  }
+  .dot-pulse{
+    width:6px; height:6px; border-radius:50%; background:var(--cyan);
+    animation:pulseNode 2.4s ease-in-out infinite;
+  }
+  .section-heading{max-width:640px;}
+  .section-heading.center{margin:0 auto; text-align:center;}
+  .section-heading h2{font-size:32px; font-weight:600; margin-top:16px;}
+  @media(min-width:768px){ .section-heading h2{font-size:38px;} }
+  .section-heading p{margin-top:16px; color:var(--ink-300); font-size:16px; line-height:1.7;}
 
-/* ---- doc strip ---- */
-.docstrip{margin-top:52px;border-bottom:1px solid var(--line);padding:9px 0;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--ink3);letter-spacing:.03em}
-.docstrip .w{display:flex;flex-wrap:wrap;gap:4px 22px;text-transform:uppercase}
-.docstrip b{color:var(--ink2);font-weight:600}
+  .card{
+    position:relative; border-radius:16px; border:1px solid rgba(58,66,87,.6);
+    background:rgba(13,18,36,.6); backdrop-filter:blur(6px);
+    box-shadow:0 1px 0 0 rgba(255,255,255,.04) inset, 0 20px 40px -20px rgba(0,0,0,.6);
+  }
 
-/* ---- hero ---- */
-#hero{padding:60px 0 70px;position:relative;overflow:hidden}
-.stamp{position:absolute;top:38px;right:24px;border:3px solid var(--red);color:var(--red);padding:8px 16px;font-family:'Big Shoulders Stencil Display',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;transform:rotate(6deg);opacity:.9;
-  animation:stampin .5s cubic-bezier(.2,1.4,.4,1) both;animation-delay:.3s}
-.stamp small{display:block;font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.15em;font-weight:600;text-align:center;margin-top:2px}
-@keyframes stampin{0%{opacity:0;transform:rotate(6deg) scale(2.6)}70%{opacity:1}100%{opacity:.9;transform:rotate(6deg) scale(1)}}
-.hw{max-width:760px}
-.heyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px;border-left:2px solid var(--red);padding-left:10px}
-h1{font-family:'Big Shoulders Stencil Display',sans-serif;font-weight:700;font-size:clamp(3.1rem,9vw,6.4rem);line-height:.92;letter-spacing:.01em;text-transform:uppercase;margin-bottom:14px}
-h1 .l2{display:block;color:var(--red)}
-.htag{font-size:1rem;line-height:1.7;color:var(--ink2);max-width:540px;margin-bottom:8px;font-weight:500}
-.htag .redact{position:relative;color:var(--ink);font-weight:600}
-.htag .redact::after{content:'';position:absolute;inset:-1px -3px;background:var(--stamp);transform-origin:right;transition:transform .5s cubic-bezier(.7,0,.2,1)}
-.htag .redact:hover::after,.htag .redact:focus::after{transform:scaleX(0)}
-.hd{font-size:.86rem;line-height:1.85;color:var(--ink2);max-width:560px;margin:18px 0 26px}
-.hd strong{color:var(--ink);font-weight:600}
-.ha{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:38px}
-.ha a{padding:12px 22px;font-weight:600;font-size:.72rem;text-decoration:none;transition:all .18s;display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--ink)}
-.ha .p{background:var(--ink);color:var(--paper)}.ha .p:hover{background:var(--red);border-color:var(--red)}
-.ha .s{color:var(--ink);background:transparent}.ha .s:hover{background:var(--ink);color:var(--paper)}
-.hs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line2);max-width:560px}
-.hgi{padding:14px 12px;text-align:left;border-right:1px solid var(--line2)}
-.hgi:last-child{border-right:none}
-.hgi .n{font-family:'Big Shoulders Display',sans-serif;font-size:1.7rem;font-weight:700;color:var(--ink);line-height:1}
-.hgi .l{font-size:.56rem;color:var(--ink3);margin-top:3px;text-transform:uppercase;letter-spacing:.06em;font-family:'JetBrains Mono',monospace;font-weight:600}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    border-radius:10px; padding:13px 22px; font-size:14px; font-weight:600;
+    cursor:pointer; border:none; font-family:var(--font-body); transition:transform .2s ease;
+  }
+  .btn-primary{ background:linear-gradient(90deg,var(--indigo),var(--violet)); color:#fff;
+    box-shadow:0 0 0 1px rgba(99,102,241,.15), 0 8px 40px -8px rgba(99,102,241,.35); }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-secondary{ background:rgba(13,18,36,.5); color:var(--ink-100); border:1px solid rgba(91,99,122,.7); }
+  .btn-secondary:hover{ border-color:rgba(99,102,241,.7); background:rgba(22,28,44,.6); }
 
-/* ---- section header ---- */
-.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:36px}
-.shN{font-family:'JetBrains Mono',monospace;font-size:.66rem;font-weight:700;color:var(--paper);background:var(--ink);padding:4px 9px}
-.shT{font-family:'Big Shoulders Display',sans-serif;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:700;letter-spacing:-.01em;text-transform:uppercase}
-.shSub{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-left:auto;white-space:nowrap}
+  .chip{
+    display:inline-flex; align-items:center; border-radius:999px;
+    border:1px solid rgba(91,99,122,.6); background:rgba(22,28,44,.5);
+    padding:5px 12px; font-family:var(--font-mono); font-size:11px;
+    text-transform:uppercase; letter-spacing:.03em; color:var(--ink-200);
+  }
 
-/* ---- about / summary ---- */
-.aw p{font-size:.87rem;line-height:1.95;color:var(--ink2);margin-bottom:14px;max-width:680px}
-.aw strong{color:var(--ink);font-weight:600;background:var(--goldT);padding:0 3px}
-.sc{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
-.sc span{padding:5px 12px;font-size:.63rem;font-weight:600;border:1px solid var(--line2);color:var(--ink2);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.03em}
+  .icon{ width:20px; height:20px; stroke:var(--cyan); fill:none; stroke-width:1.6; }
 
-/* ---- skills / systems ---- */
-.skg{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line2);border-right:none;border-bottom:none}
-.skn{padding:20px 18px;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);transition:background .2s;position:relative}
-.skn:hover{background:var(--paper2)}
-.skh{font-size:.56rem;font-weight:700;color:var(--red);margin-bottom:10px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em}
-.sknh{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:5px;text-transform:uppercase}
-.sks{font-size:.72rem;color:var(--ink2);line-height:1.65}
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
 
-/* ---- findings / projects ---- */
-.pf{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
-.pfb{padding:6px 15px;font-size:.65rem;font-weight:600;border:1px solid var(--line2);background:transparent;color:var(--ink2);cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.04em}
-.pfb:hover,.pfb.active{border-color:var(--ink);color:var(--paper);background:var(--ink)}
-.pg{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
-.pc{padding:20px 4px;border-bottom:1px solid var(--line2);display:grid;grid-template-columns:90px 1fr auto;gap:18px;align-items:start;transition:background .15s}
-.pc:hover{background:var(--paper2)}
-.pn{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--ink3);font-weight:600;padding-top:2px}
-.pmid{min-width:0}
-.ptop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px}
-.pcn{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:0}
-.ptag{font-size:.56rem;font-weight:700;padding:2px 8px;text-transform:uppercase;letter-spacing:.06em;font-family:'JetBrains Mono',monospace;border:1px solid currentColor}
-.ptag.tool{color:var(--red)}
-.ptag.platform{color:var(--blue)}
-.ptag.web{color:var(--gold)}
-.ptag.ai{color:var(--ink2)}
-.pct{font-size:.65rem;color:var(--ink3);font-weight:500;margin-bottom:6px;font-family:'JetBrains Mono',monospace}
-.pcd{font-size:.76rem;color:var(--ink2);line-height:1.7;max-width:560px}
-.pp{display:flex;gap:6px;padding-top:2px}
-.pp a{width:30px;height:30px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--ink2);text-decoration:none;font-size:.6rem;font-family:'JetBrains Mono',monospace;transition:all .15s}
-.pp a:hover{color:var(--paper)!important;border-color:var(--ink)!important;background:var(--ink)}
+  @keyframes pulseNode{ 0%,100%{opacity:.35; transform:scale(1);} 50%{opacity:1; transform:scale(1.3);} }
+  @keyframes blink{ 0%,49%{opacity:1;} 50%,100%{opacity:0;} }
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  }
 
-/* ---- credentials ---- */
-.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.cer{padding:20px 16px;border:1px solid var(--line2);transition:all .2s;display:flex;flex-direction:column;position:relative}
-.cer:hover{border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue)}
-.ci{width:38px;height:38px;border:2px solid var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.52rem;font-weight:700;margin-bottom:12px;color:var(--blue);font-family:'JetBrains Mono',monospace}
-.cn{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:.92rem;margin-bottom:2px;text-transform:uppercase}
-.co{font-size:.63rem;color:var(--ink3);margin-bottom:8px;font-weight:600;font-family:'JetBrains Mono',monospace}
-.cd{font-size:.68rem;color:var(--ink2);line-height:1.6;flex:1}
-.cb{display:inline-flex;align-items:center;gap:5px;margin-top:12px;padding:5px 0;font-size:.62rem;font-weight:700;color:var(--blue);text-decoration:none;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid transparent}
-.cb:hover{border-color:var(--blue)}
+  /* ---------- NAV ---------- */
+  header.nav{ position:fixed; inset:0 0 auto 0; z-index:50; transition:background-color .3s ease, border-color .3s ease; }
+  header.nav.scrolled{ background:rgba(4,6,13,.85); backdrop-filter:blur(10px); border-bottom:1px solid rgba(36,43,61,.6); }
+  .nav-row{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand{ display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-weight:600; font-size:14px; }
+  .brand svg{ width:20px; height:20px; stroke:var(--cyan); }
+  .brand .full{ display:inline; } .brand .short{ display:none; }
+  .nav-links{ display:none; align-items:center; gap:30px; }
+  .nav-links a{ font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-300); transition:color .2s; }
+  .nav-links a:hover{ color:var(--cyan); }
+  .nav-cta{ display:none; }
+  .nav-toggle{ background:none; border:1px solid rgba(36,43,61,.6); border-radius:8px; padding:8px; color:var(--ink-100); cursor:pointer; }
+  .nav-toggle svg{ width:20px; height:20px; stroke:var(--ink-100); }
+  .mobile-menu{ display:none; border-top:1px solid rgba(36,43,61,.6); background:rgba(4,6,13,.97); backdrop-filter:blur(10px); }
+  .mobile-menu.open{ display:block; }
+  .mobile-menu .shell{ display:flex; flex-direction:column; padding:16px 24px; gap:2px; }
+  .mobile-menu a{ padding:12px; border-radius:8px; font-family:var(--font-mono); font-size:14px; text-transform:uppercase; color:var(--ink-200); }
+  .mobile-menu a:hover{ background:var(--ink-800); color:var(--cyan); }
 
-/* ---- publications / books ---- */
-.bkl{border-top:1px solid var(--line2)}
-.bk{display:grid;grid-template-columns:40px 1fr auto;gap:18px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line2);transition:background .15s}
-.bk:hover{background:var(--paper2)}
-.bkn{font-family:'Big Shoulders Display',sans-serif;font-size:1.3rem;font-weight:700;color:var(--ink3)}
-.bkt{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.05rem;text-transform:uppercase}
-.bkc{font-size:.62rem;color:var(--ink3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-family:'JetBrains Mono',monospace;margin-top:2px}
-.bka{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;font-weight:700;color:var(--ink);text-decoration:none;font-family:'JetBrains Mono',monospace;text-transform:uppercase;padding:8px 14px;border:1px solid var(--ink);transition:all .15s;white-space:nowrap}
-.bka:hover{background:var(--ink);color:var(--paper)}
+  @media(min-width:768px){
+    .brand .short{ display:none; } .brand .full{ display:inline; }
+    .nav-links{ display:flex; }
+    .nav-cta{ display:block; }
+    .nav-toggle{ display:none; }
+  }
+  @media(max-width:767px){ .brand .full{ display:none;} .brand .short{ display:inline;} }
 
-/* ---- chronology / education ---- */
-.tl{border-left:2px solid var(--ink);padding-left:26px;margin-left:6px}
-.tli{padding:0 0 30px 0;position:relative;opacity:0;transform:translateY(10px);transition:all .5s ease}
-.tli.v{opacity:1;transform:translateY(0)}
-.tld{position:absolute;left:-32px;top:3px;width:11px;height:11px;background:var(--paper);border:2px solid var(--ink)}
-.tli.active .tld{background:var(--red);border-color:var(--red)}
-.tly{font-size:.7rem;font-weight:700;color:var(--ink2);margin-bottom:3px;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.05em}
-.tlb{padding:2px 7px;background:var(--red);color:var(--paper);font-size:.52rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.tlt{font-family:'Big Shoulders Display',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:2px;text-transform:uppercase}
-.tls{font-size:.7rem;color:var(--ink3);margin-bottom:6px;font-family:'JetBrains Mono',monospace}
-.tlp{font-size:.78rem;color:var(--ink2);line-height:1.7;max-width:520px}
+  /* ---------- HERO ---------- */
+  .hero{ position:relative; overflow:hidden; padding-top:150px; padding-bottom:90px; }
+  @media(min-width:1024px){ .hero{ padding-top:190px; padding-bottom:120px; } }
+  .hero-bg{ position:absolute; inset:0; opacity:.4; pointer-events:none;
+    -webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 20%, black, transparent);
+    mask-image:radial-gradient(ellipse 60% 60% at 50% 20%, black, transparent); }
+  .hero-bg svg{ width:100%; height:100%; }
+  .hero-glow{ position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(circle at 50% 0%, rgba(99,102,241,.16), transparent 60%); }
+  .hero-grid{ position:relative; display:grid; gap:56px; align-items:center; }
+  @media(min-width:1024px){ .hero-grid{ grid-template-columns:1.1fr .9fr; } }
+  .hero-badge{ opacity:0; animation:fadeUp .5s ease forwards; }
+  .hero h1{ font-size:42px; line-height:1.08; margin-top:24px; opacity:0; animation:fadeUp .6s ease .08s forwards; }
+  @media(min-width:768px){ .hero h1{ font-size:60px; } }
+  .hero .role{ margin-top:16px; font-family:var(--font-mono); font-size:14px; text-transform:uppercase; letter-spacing:.18em; color:var(--cyan);
+    opacity:0; animation:fadeUp .6s ease .16s forwards; }
+  @media(min-width:768px){ .hero .role{ font-size:16px; } }
+  .hero .intro{ margin-top:24px; max-width:560px; font-size:18px; line-height:1.7; color:var(--ink-300);
+    opacity:0; animation:fadeUp .6s ease .24s forwards; }
+  .hero .cta-row{ margin-top:36px; display:flex; flex-wrap:wrap; gap:12px;
+    opacity:0; animation:fadeUp .6s ease .32s forwards; }
+  .hero .meta-row{ margin-top:32px; display:flex; align-items:center; gap:16px; color:var(--ink-400); flex-wrap:wrap;
+    opacity:0; animation:fadeUp .6s ease .4s forwards; }
+  .hero .meta-row svg{ width:16px; height:16px; stroke:var(--ink-400); }
+  .hero .meta-row a{ font-family:var(--font-mono); font-size:12px; color:var(--ink-300); }
+  .hero .meta-row a:hover{ color:var(--cyan); }
+  .meta-sep{ width:4px; height:4px; border-radius:50%; background:var(--ink-500); }
 
-/* ---- disclosure / contact ---- */
-.ctg{display:grid;grid-template-columns:1.1fr 1fr;gap:60px}
-.cl{font-size:.64rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;font-family:'JetBrains Mono',monospace}
-.cth{font-family:'Big Shoulders Stencil Display',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1;text-transform:uppercase;margin-bottom:16px}
-.ctbd{font-size:.85rem;color:var(--ink2);line-height:1.9;margin-bottom:24px;max-width:460px}
-.cs{display:flex;gap:6px}
-.cs a{width:36px;height:36px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink2);font-size:.56rem;font-weight:700;transition:all .15s;font-family:'JetBrains Mono',monospace}
-.cs a:hover{border-color:var(--ink);color:var(--paper);background:var(--ink)}
-.ctc{display:flex;flex-direction:column;border:1px solid var(--line2)}
-.ctc a{display:flex;align-items:center;gap:14px;padding:16px 18px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line2);transition:background .15s;position:relative}
-.ctc a:last-child{border-bottom:none}
-.ctc a:hover{background:var(--paper2)}
-.cti{width:30px;height:30px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--ink3)}
-.ctn{flex:1;min-width:0}
-.ctl{font-size:.56rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;font-family:'JetBrains Mono',monospace}
-.ctv{font-size:.78rem;font-weight:600;position:relative;display:inline-block}
-.ctv .redact::after{content:'';position:absolute;inset:-2px -4px;background:var(--stamp);transform-origin:right;transition:transform .45s cubic-bezier(.7,0,.2,1)}
-.ctc a:hover .redact::after,.ctc a:focus-within .redact::after{transform:scaleX(0)}
-.ctar{color:var(--ink3);font-size:.7rem;font-family:'JetBrains Mono',monospace}
+  .terminal{ overflow:hidden; opacity:0; animation:fadeUp .7s ease .3s forwards; }
+  .terminal-bar{ display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(58,66,87,.6); padding:12px 20px; }
+  .terminal-dots{ display:flex; gap:8px; }
+  .terminal-dots span{ width:10px; height:10px; border-radius:50%; }
+  .terminal-label{ display:flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11px; color:var(--ink-400); }
+  .terminal-label svg{ width:14px; height:14px; stroke:var(--ink-400); }
+  .terminal-body{ position:relative; height:300px; overflow:hidden; padding:20px; font-family:var(--font-mono); font-size:13px; line-height:1.8; color:var(--ink-200); }
+  .terminal-body p{ opacity:0; animation:fadeUp .3s ease forwards; }
+  .terminal-body .prompt{ color:var(--cyan); }
+  .cursor{ display:inline-block; width:8px; height:16px; background:var(--indigo); transform:translateY(3px); animation:blink 1s step-end infinite; }
 
-footer{padding:18px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--ink3);flex-wrap:wrap;gap:6px}
-footer b{color:var(--ink2);font-weight:600}
+  /* ---------- STATS ---------- */
+  .stats{ border-top:1px solid rgba(36,43,61,.5); border-bottom:1px solid rgba(36,43,61,.5); background:rgba(7,10,21,.4); padding:64px 0; }
+  .stats-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:32px; text-align:center; }
+  @media(min-width:768px){ .stats-grid{ grid-template-columns:repeat(4,1fr); text-align:left; } }
+  .stat-num{ font-family:var(--font-display); font-size:38px; font-weight:600; color:var(--ink-50); }
+  @media(min-width:768px){ .stat-num{ font-size:46px; } }
+  .stat-label{ margin-top:8px; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-400); }
+  @media(min-width:768px){ .stat-label{ font-size:14px; } }
 
-.r{opacity:0;transform:translateY(20px);transition:all .55s ease}
-.r.v{opacity:1;transform:translateY(0)}
-.r[data-d="1"]{transition-delay:.07s}
-.r[data-d="2"]{transition-delay:.14s}
-.r[data-d="3"]{transition-delay:.21s}
+  /* ---------- ABOUT ---------- */
+  .about-grid{ margin-top:56px; display:grid; gap:48px; }
+  @media(min-width:1024px){ .about-grid{ grid-template-columns:1fr .9fr; } }
+  .about-bio p{ color:var(--ink-300); font-size:16px; line-height:1.75; margin-bottom:20px; }
+  .focus-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
+  @media(min-width:576px){ .focus-grid{ grid-template-columns:1fr 1fr; } }
+  .focus-card{ padding:20px; }
+  .focus-card h3{ font-size:14px; margin-top:16px; }
+  .focus-card p{ margin-top:8px; font-size:14px; color:var(--ink-300); line-height:1.6; }
 
-@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+  /* ---------- SKILLS ---------- */
+  .skills-grid{ margin-top:56px; display:grid; gap:20px; grid-template-columns:1fr; }
+  @media(min-width:576px){ .skills-grid{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1024px){ .skills-grid{ grid-template-columns:repeat(3,1fr); } }
+  .skill-card{ padding:24px; height:100%; }
+  .skill-card h3{ font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.14em; color:var(--cyan); }
+  .skill-chips{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
 
-@media(max-width:1000px){
-  .skg{grid-template-columns:repeat(2,1fr)}
-  .cg{grid-template-columns:repeat(2,1fr)}
-  .ctg{grid-template-columns:1fr;gap:34px}
-  .hs{grid-template-columns:repeat(2,1fr);max-width:340px}
-  .nr a:not(.always){display:none}
-  .mb{display:flex}
-  .stamp{position:static;transform:rotate(-2deg);display:inline-flex;flex-direction:column;margin-bottom:24px}
-}
-@media(max-width:640px){
-  .pc{grid-template-columns:1fr;gap:8px}
-  .pn{display:none}
-  .bk{grid-template-columns:1fr;gap:8px}
-  .bkn{display:none}
-  .docstrip .w{gap:4px 14px;font-size:.58rem}
-  .sec{padding:56px 0}
-  .cg{grid-template-columns:1fr 1fr}
-  h1{font-size:2.5rem}
-  .w{padding:0 18px}
-}
+  /* ---------- PROJECTS ---------- */
+  .projects-grid{ margin-top:56px; display:grid; gap:24px; grid-template-columns:1fr; }
+  @media(min-width:768px){ .projects-grid{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1280px){ .projects-grid{ grid-template-columns:repeat(3,1fr); } }
+  .project-card{ display:flex; flex-direction:column; height:100%; overflow:hidden; }
+  .project-thumb{ position:relative; height:150px; display:flex; align-items:center; justify-content:center;
+    border-bottom:1px solid rgba(58,66,87,.6); overflow:hidden;
+    background:linear-gradient(135deg, rgba(22,28,44,.6), var(--ink-800), var(--ink-900));
+  }
+  .project-thumb::before{ content:''; position:absolute; inset:0; opacity:.7;
+    background-image:linear-gradient(rgba(99,102,241,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,.15) 1px, transparent 1px);
+    background-size:22px 22px; }
+  .project-thumb svg{ width:40px; height:40px; stroke:rgba(99,102,241,.7); position:relative; }
+  .project-tag{ position:absolute; top:12px; right:12px; }
+  .project-body{ display:flex; flex-direction:column; flex:1; padding:24px; }
+  .project-body h3{ font-size:20px; }
+  .project-body .tagline{ margin-top:4px; font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.03em; color:var(--cyan); }
+  .project-body .desc{ margin-top:16px; font-size:14px; color:var(--ink-300); line-height:1.65; }
+  .feature-list{ margin-top:16px; display:flex; flex-direction:column; gap:6px; }
+  .feature-list li{ display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--ink-300); }
+  .feature-list li::before{ content:''; margin-top:7px; width:4px; height:4px; border-radius:50%; background:var(--violet); flex-shrink:0; }
+  .tech-row{ margin-top:20px; display:flex; flex-wrap:wrap; gap:8px; }
+  .link-row{ margin-top:24px; display:flex; align-items:center; gap:16px; padding-top:8px; }
+  .link-row a{ display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:500; color:var(--ink-200); }
+  .link-row a:hover{ color:var(--cyan); }
+  .link-row svg{ width:16px; height:16px; stroke:currentColor; }
+
+  .sub-heading{ margin-top:96px; }
+  .platform-grid{ margin-top:40px; display:grid; gap:16px; grid-template-columns:1fr; }
+  @media(min-width:576px){ .platform-grid{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1024px){ .platform-grid{ grid-template-columns:repeat(4,1fr); } }
+  .platform-card{ padding:20px; height:100%; }
+  .platform-card h3{ font-size:14px; }
+  .platform-card p{ margin-top:8px; font-size:13px; color:var(--ink-300); line-height:1.6; }
+
+  .addproj-grid{ margin-top:40px; display:grid; gap:16px; grid-template-columns:1fr; }
+  @media(min-width:576px){ .addproj-grid{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1024px){ .addproj-grid{ grid-template-columns:repeat(3,1fr); } }
+  .addproj-card{ padding:20px; height:100%; }
+  .addproj-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+  .addproj-head h3{ font-size:14px; }
+  .addproj-card p{ margin-top:8px; font-size:13px; color:var(--ink-300); line-height:1.6; }
+  .see-more{ margin-top:40px; display:flex; justify-content:center; }
+
+  /* ---------- RESEARCH ---------- */
+  .research{ border-top:1px solid rgba(36,43,61,.5); background:rgba(7,10,21,.3); }
+  .research-grid{ margin-top:56px; display:grid; gap:1px; background:rgba(58,66,87,.6); border:1px solid rgba(58,66,87,.6); border-radius:16px; overflow:hidden; grid-template-columns:1fr; }
+  @media(min-width:768px){ .research-grid{ grid-template-columns:1fr 1fr; } }
+  .research-item{ background:rgba(7,10,21,.8); padding:28px; }
+  .research-item h3{ font-size:18px; }
+  .research-item p{ margin-top:12px; font-size:14px; color:var(--ink-300); line-height:1.6; }
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid{ margin-top:56px; display:grid; gap:20px; grid-template-columns:1fr; }
+  @media(min-width:576px){ .cert-grid{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1024px){ .cert-grid{ grid-template-columns:repeat(3,1fr); } }
+  .cert-card{ display:flex; flex-direction:column; height:100%; padding:24px; }
+  .cert-card h3{ margin-top:16px; font-size:16px; }
+  .cert-card .issuer{ margin-top:4px; font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.03em; color:var(--violet); }
+  .cert-card .desc{ margin-top:12px; flex:1; font-size:14px; color:var(--ink-300); line-height:1.6; }
+  .cert-card .verify{ margin-top:20px; display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:500; color:var(--ink-200); }
+  .cert-card .verify:hover{ color:var(--cyan); }
+  .cert-card .verify svg{ width:14px; height:14px; stroke:currentColor; }
+
+  /* ---------- EDUCATION ---------- */
+  .education{ border-top:1px solid rgba(36,43,61,.5); background:rgba(7,10,21,.3); }
+  .timeline{ position:relative; margin-top:56px; border-left:1px solid rgba(58,66,87,.6); padding-left:32px; display:flex; flex-direction:column; gap:32px; }
+  .timeline-item{ position:relative; }
+  .timeline-dot{ position:absolute; left:-45px; top:4px; width:24px; height:24px; border-radius:50%; border:1px solid rgba(99,102,241,.5); background:var(--ink-900); display:flex; align-items:center; justify-content:center; }
+  .timeline-dot svg{ width:14px; height:14px; stroke:var(--cyan); }
+  .timeline-card{ padding:24px; }
+  .timeline-head{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; }
+  .timeline-head h3{ font-size:18px; }
+  .timeline-head .period{ font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.03em; color:var(--cyan); white-space:nowrap; }
+  .timeline-card .org{ margin-top:4px; font-size:14px; color:var(--ink-400); }
+  .timeline-card .desc{ margin-top:12px; font-size:14px; color:var(--ink-300); line-height:1.6; }
+
+  /* ---------- BOOKS ---------- */
+  .book-grid{ margin-top:48px; display:grid; gap:16px; grid-template-columns:1fr; }
+  @media(min-width:576px){ .book-grid{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1024px){ .book-grid{ grid-template-columns:repeat(3,1fr); } }
+  .book-card{ display:flex; align-items:flex-start; gap:14px; padding:20px; }
+  .book-card svg{ width:20px; height:20px; stroke:var(--violet); flex-shrink:0; margin-top:2px; }
+  .book-card h3{ font-size:14px; line-height:1.4; }
+  .book-card .subtitle{ margin-top:4px; font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--ink-400); }
+  .books-note{ margin-top:32px; font-size:14px; color:var(--ink-400); }
+  .books-note a{ color:var(--cyan); font-weight:500; }
+  .books-note a:hover{ text-decoration:underline; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ border-top:1px solid rgba(36,43,61,.5); }
+  .contact-grid{ margin-top:56px; display:grid; gap:20px; grid-template-columns:1fr; }
+  @media(min-width:576px){ .contact-grid{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1024px){ .contact-grid{ grid-template-columns:repeat(4,1fr); } }
+  .contact-card{ display:flex; flex-direction:column; height:100%; padding:24px; transition:border-color .2s; }
+  .contact-card:hover{ border-color:rgba(99,102,241,.6); }
+  .contact-card span.label{ margin-top:16px; font-size:14px; font-weight:600; color:var(--ink-50); }
+  .contact-card span.value{ margin-top:4px; font-family:var(--font-mono); font-size:12px; color:var(--ink-400); word-break:break-all; }
+  .contact-card:hover span.value{ color:var(--cyan); }
+  .contact-send{ margin-top:40px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ border-top:1px solid rgba(36,43,61,.5); padding:40px 0; }
+  .footer-row{ display:flex; flex-direction:column; align-items:center; justify-content:space-between; gap:16px; font-size:12px; color:var(--ink-400); text-align:center; }
+  @media(min-width:576px){ .footer-row{ flex-direction:row; text-align:left; } }
+  .footer-links{ display:flex; align-items:center; gap:16px; font-family:var(--font-mono); }
+  .footer-links a:hover{ color:var(--cyan); }
 </style>
 </head>
 <body>
-<div class="scan" aria-hidden="true"></div>
 
-<nav>
-  <a href="#hero" class="nm"><span class="dot"></span>Abdi Wali Ahmed</a>
-  <div class="nr">
-    <a href="#about" class="always">Summary</a>
-    <a href="#skills">Systems</a>
-    <a href="#projects">Findings</a>
-    <a href="#cert">Credentials</a>
-    <a href="#books">Publications</a>
-    <a href="#education">Chronology</a>
-    <a href="#contact" class="always">Disclosure</a>
-    <button class="tbtn" id="tbtn" aria-label="Toggle theme">DARK</button>
-    <button class="mb" id="mb" aria-label="Open menu"><span></span><span></span><span></span></button>
+<!-- ============ NAV ============ -->
+<header class="nav" id="siteNav">
+  <div class="shell nav-row">
+    <a href="#top" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span class="full">Abdiwali Ahmed Abdisalam</span>
+      <span class="short">AWA</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-secondary nav-cta" style="padding:8px 16px; font-size:12px;">Contact</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg id="iconMenu" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="iconClose" viewBox="0 0 24 24" fill="none" stroke-width="2" style="display:none;"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
   </div>
-</nav>
-
-<div id="menu">
-  <div class="mn">// Navigate report</div>
-  <a href="#about" onclick="cM()">Summary</a>
-  <a href="#skills" onclick="cM()">Systems</a>
-  <a href="#projects" onclick="cM()">Findings</a>
-  <a href="#cert" onclick="cM()">Credentials</a>
-  <a href="#books" onclick="cM()">Publications</a>
-  <a href="#education" onclick="cM()">Chronology</a>
-  <a href="#contact" onclick="cM()">Disclosure</a>
-</div>
-
-<div class="docstrip">
-  <div class="w">
-    <span><b>DOC</b> AWA-FR-2026</span>
-    <span><b>CLASS</b> PUBLIC</span>
-    <span><b>ORIGIN</b> Mogadishu, SO</span>
-    <span><b>SUBJECT</b> Engineer profile / capability report</span>
-    <span><b>STATUS</b> <span style="color:var(--green)">●</span> Open engagement</span>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="shell">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
-</div>
+</header>
 
-<section id="hero">
-  <div class="hexwrap" aria-hidden="true">
-    <span style="top:8%;left:2%">4F 43 3A 20 41 43 54 49 56 45 20 2D 2D 20 53 43 41 4E 20 43 4F 4D 50 4C 45 54 45</span>
-    <span style="top:22%;left:58%">30 78 41 57 41 20 2D 2D 20 68 61 6E 64 73 68 61 6B 65 20 6F 6B</span>
-    <span style="top:40%;left:6%">73 63 61 6E 6E 69 6E 67 20 70 6F 72 74 73 20 32 32 2C 34 34 33 2C 38 30 38 30</span>
-    <span style="top:58%;left:64%">3E 20 61 63 63 65 73 73 20 67 72 61 6E 74 65 64</span>
-    <span style="top:76%;left:4%">73 68 61 32 35 36 3A 20 39 66 38 36 64 30 38 31 38 38 34 63</span>
-    <span style="top:90%;left:55%">2F 2F 20 6E 6F 20 6B 6E 6F 77 6E 20 43 56 45 73</span>
-  </div>
-  <div class="w">
-    <div class="stamp">VERIFIED<small>ENGINEER</small></div>
-    <div class="hw">
-      <div class="heyebrow">Field Report — filed by the subject himself</div>
-      <h1>Abdi Wali<span class="l2">Ahmed</span></h1>
-      <p class="htag">Cybersecurity engineer and full-stack developer who <span class="redact" tabindex="0">builds the lock, then picks it</span> — based in Mogadishu, Somalia.</p>
-      <p class="hd">Trained across the <strong>MERN stack</strong> and <strong>Django</strong>, and hands-on in web penetration testing, network security, and OSINT. Also a <strong>5× published author</strong> — writing Somalia's first practical cybersecurity manuals in the Somali language, so the next generation doesn't have to learn this field in a tongue that isn't theirs.</p>
-      <div class="ha"><a href="#projects" class="p">Review Findings ↓</a><a href="#contact" class="s">File a Request →</a></div>
-      <div class="term r" aria-hidden="true">
-        <div class="termbar"><i></i><i></i><i></i><span>session — awa@mogadishu</span></div>
-        <div class="termbody">
-          <div><span class="p">$</span> whoami</div>
-          <div class="out">abdi_wali_ahmed — cybersecurity engineer</div>
-          <div><span class="p">$</span> cat skills.txt | grep -c "shipped"</div>
-          <div class="out ok">18 systems, 5 books, 0 known CVEs<span class="cursor"></span></div>
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-bg" id="nodeField"></div>
+    <div class="hero-glow"></div>
+    <div class="shell hero-grid">
+      <div>
+        <span class="eyebrow hero-badge"><span class="dot-pulse"></span>Available for security research &amp; freelance engagements</span>
+        <h1>Abdiwali Ahmed Abdisalam</h1>
+        <p class="role">Web Penetration Tester · Bug Bounty Hunter · Full-Stack Developer</p>
+        <p class="intro">I break web applications to understand them, then build the tooling that finds the next one faster. Offensive security research, bug bounty hunting, and full-stack engineering out of Mogadishu, Somalia.</p>
+        <div class="cta-row">
+          <a href="AbdiWaliAhmed_CV.pdf" download class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+            Download CV
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z" opacity="0"/><path d="M4 6h16v12H4z"/><path d="M4 6l8 7 8-7"/></svg>
+            Contact Me
+          </a>
+          <a href="#projects" class="btn btn-secondary">
+            View Projects
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="meta-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 19c-4-1-7-4.5-7-9a10 10 0 0120 0c0 4.5-3 8-7 9M9 19v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg>
+          <a href="https://github.com/Ruushy" target="_blank" rel="noopener noreferrer">github.com/Ruushy</a>
+          <span class="meta-sep"></span>
+          <span style="font-family:var(--font-mono); font-size:12px;">Mogadishu, Somalia</span>
         </div>
       </div>
-      <div class="hs">
-        <div class="hgi"><div class="n">18+</div><div class="l">Systems shipped</div></div>
-        <div class="hgi"><div class="n">05</div><div class="l">Books authored</div></div>
-        <div class="hgi"><div class="n">04</div><div class="l">Credentials</div></div>
-        <div class="hgi"><div class="n">01</div><div class="l">Language bridged</div></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="about" class="sec sec2">
-  <div class="w">
-    <div class="sh r"><span class="shN">§01</span><span class="shT">Summary</span><span class="shSub">Field notes</span></div>
-    <div class="aw r">
-      <p>I work both sides of the same wall: <strong>building software</strong> with one hand, and <strong>trying to break it</strong> with the other. Every system I ship gets stress-tested by someone who already knows where engineers hide their assumptions — because that someone is me.</p>
-      <p>Day to day that means full-stack delivery across the <strong>MERN stack</strong> and <strong>Django</strong> — database to interface — alongside web penetration testing, network hardening, and OSINT reconnaissance. I don't just use these skills, I package them into hands-on labs so other people in Somalia can learn them too.</p>
-      <p>That's also why I write. I'm the author of <strong>five technical books in Somali</strong> covering networking and offensive security — because the best security education in the world doesn't help anyone if it never arrives in their own language.</p>
-      <div class="sc"><span>Full-Stack</span><span>Penetration Testing</span><span>Network Security</span><span>Cloud Security</span><span>OSINT</span><span>Technical Writing</span><span>Arabic · Somali · English</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="skills" class="sec">
-  <div class="w">
-    <div class="sh r"><span class="shN">§02</span><span class="shT">Systems on file</span><span class="shSub">Working knowledge</span></div>
-    <div class="skg">
-      <div class="skn r"><div class="skh">Stack / A</div><div class="sknh">MERN Stack</div><div class="sks">MongoDB, Express.js, React, Node.js — end-to-end web applications.</div></div>
-      <div class="skn r" data-d="1"><div class="skh">Stack / B</div><div class="sknh">Django Framework</div><div class="sks">Python, REST APIs, and full-stack apps on Django's ecosystem.</div></div>
-      <div class="skn r" data-d="2"><div class="skh">Offense</div><div class="sknh">Web Pentesting</div><div class="sks">Scanning, exploitation, vulnerability discovery, and disclosure reporting.</div></div>
-      <div class="skn r" data-d="3"><div class="skh">Defense</div><div class="sknh">Network Security</div><div class="sks">Network scanning, hardening, and vulnerability assessment.</div></div>
-      <div class="skn r"><div class="skh">Infra</div><div class="sknh">Cloud Security</div><div class="sks">AWS foundations, secure architecture, and safe deployment practices.</div></div>
-      <div class="skn r" data-d="1"><div class="skh">Recon</div><div class="sknh">OSINT</div><div class="sks">Passive intelligence gathering and threat research, no active footprint.</div></div>
-      <div class="skn r" data-d="2"><div class="skh">Data</div><div class="sknh">Database Engineering</div><div class="sks">MySQL and MongoDB — schema design and query optimization.</div></div>
-      <div class="skn r" data-d="3"><div class="skh">Output</div><div class="sknh">Technical Writing</div><div class="sks">Five published books in Somali on security and networking.</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="sec sec2">
-  <div class="w">
-    <div class="sh r"><span class="shN">§03</span><span class="shT">Findings</span><span class="shSub">18 logged</span></div>
-    <div class="pf r">
-      <button class="pfb active" data-f="all">All</button>
-      <button class="pfb" data-f="tool">Security tool</button>
-      <button class="pfb" data-f="platform">Training platform</button>
-      <button class="pfb" data-f="web">Web app</button>
-      <button class="pfb" data-f="ai">AI</button>
-    </div>
-    <div class="pg r">
-      <div class="pc" data-c="tool"><span class="pn">AWA-001</span><div class="pmid"><div class="ptop"><span class="pcn">BaareWeb</span><span class="ptag tool">Tool</span></div><div class="pct">Django · JavaScript</div><div class="pcd">A full security scanning platform that identifies web vulnerabilities and generates detailed reports.</div></div><div class="pp"><a href="https://github.com/Ruushy/BaareWeb" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="web ai"><span class="pn">AWA-002</span><div class="pmid"><div class="ptop"><span class="pcn">Cod Hufan — AI Voice Studio</span><span class="ptag ai">AI</span></div><div class="pct">Django · AI</div><div class="pcd">AI-powered audio and video enhancement platform delivering studio-quality speech output.</div></div><div class="pp"><a href="https://github.com/Ruushy/CodHufan-Voice-Studio-AI" target="_blank" aria-label="View code">GH</a><a href="https://youtu.be/K97AVLtlwr0" target="_blank" aria-label="Watch demo">▶</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-003</span><div class="pmid"><div class="ptop"><span class="pcn">Web Pentesting Handbook</span><span class="ptag platform">Platform</span></div><div class="pct">HTML · CSS · JS — 16 chapters</div><div class="pcd">An interactive handbook for learning web pentesting in Somali, with exercises for every chapter.</div></div><div class="pp"><a href="https://github.com/Ruushy/WebPenTesting_HandBook" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="tool"><span class="pn">AWA-004</span><div class="pmid"><div class="ptop"><span class="pcn">SecureScope</span><span class="ptag tool">Tool</span></div><div class="pct">Django · No DB</div><div class="pcd">Local-first security header analyzer for HTTP, TLS, CORS, and CSP — zero footprint, no login required.</div></div><div class="pp"><a href="https://github.com/Ruushy/Web-Security-Analyzer" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="tool"><span class="pn">AWA-005</span><div class="pmid"><div class="ptop"><span class="pcn">SahalHadiye</span><span class="ptag tool">Tool</span></div><div class="pct">Django · Python</div><div class="pcd">Profiles a target and generates a full penetration testing guide from passive reconnaissance alone.</div></div><div class="pp"><a href="#" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="tool"><span class="pn">AWA-006</span><div class="pmid"><div class="ptop"><span class="pcn">SahminINT</span><span class="ptag tool">Tool</span></div><div class="pct">Django · Passive OSINT</div><div class="pcd">Aggregates intelligence from crt.sh, AlienVault, and HackerTarget — zero active scanning.</div></div><div class="pp"><a href="#" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-007</span><div class="pmid"><div class="ptop"><span class="pcn">CyberOS</span><span class="ptag platform">Platform</span></div><div class="pct">HTML · CSS · JS</div><div class="pcd">A browser-based ethical hacking simulation OS, complete with terminal and lab environments for students.</div></div><div class="pp"><a href="#" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-008</span><div class="pmid"><div class="ptop"><span class="pcn">SomXSS Academy</span><span class="ptag platform">Platform</span></div><div class="pct">20 rooms · Somali</div><div class="pcd">An interactive XSS learning platform with 20 rooms of hands-on labs, fully in Somali.</div></div><div class="pp"><a href="https://github.com/Ruushy/SomXss-platform" target="_blank" aria-label="View code">GH</a><a href="https://youtu.be/Q6FHDPW0VzE" target="_blank" aria-label="Watch demo">▶</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-009</span><div class="pmid"><div class="ptop"><span class="pcn">SomSQLi Training Platform</span><span class="ptag platform">Platform</span></div><div class="pct">20 labs · SQL injection</div><div class="pcd">Hands-on SQL injection training with 20 locally-hosted vulnerable labs to practice against.</div></div><div class="pp"><a href="https://youtu.be/4eFsBbtAGQM" target="_blank" aria-label="Watch demo">▶</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-010</span><div class="pmid"><div class="ptop"><span class="pcn">SomJWT Academy</span><span class="ptag platform">Platform</span></div><div class="pct">15 labs · JWT</div><div class="pcd">JWT and authentication-bypass training across 15 rooms, fully in Somali.</div></div><div class="pp"><a href="https://github.com/Ruushy/SomJWT" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-011</span><div class="pmid"><div class="ptop"><span class="pcn">SomVuln Academy</span><span class="ptag platform">Platform</span></div><div class="pct">SSRF · XXE</div><div class="pcd">A training platform focused on SSRF and XXE vulnerabilities, fully in Somali.</div></div><div class="pp"><a href="https://github.com/Ruushy/SSRF-XXE-platfiorm" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-012</span><div class="pmid"><div class="ptop"><span class="pcn">SomPT Academy</span><span class="ptag platform">Platform</span></div><div class="pct">IDOR · CTF flags</div><div class="pcd">Path traversal and IDOR practice with real CTF flags, fully in Somali.</div></div><div class="pp"><a href="https://github.com/Ruushy/SomPT-Path-Traversal-IDOR-Practice" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-013</span><div class="pmid"><div class="ptop"><span class="pcn">Nmap — Bilow ilaa Dhamaad</span><span class="ptag platform">Platform</span></div><div class="pct">Interactive terminal</div><div class="pcd">A site that teaches Nmap from start to finish with a built-in interactive terminal for practice.</div></div><div class="pp"><a href="https://ruushy.github.io/nmap-bilaw-ilaa-dhamaad/" target="_blank" aria-label="Visit site">↗</a></div></div>
-
-      <div class="pc" data-c="web"><span class="pn">AWA-014</span><div class="pmid"><div class="ptop"><span class="pcn">Student Management System</span><span class="ptag web">Web app</span></div><div class="pct">Django · MySQL</div><div class="pcd">A web app for managing student records across educational institutions.</div></div><div class="pp"><a href="https://github.com/Ruushy/Student-management-system-in-Django-and-mysql" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="web"><span class="pn">AWA-015</span><div class="pmid"><div class="ptop"><span class="pcn">Bakaaro POS System</span><span class="ptag web">Web app</span></div><div class="pct">MERN Stack</div><div class="pcd">A point-of-sale system for transaction processing and inventory management.</div></div><div class="pp"><a href="https://www.youtube.com/watch?v=TUGLPrXK8LI" target="_blank" aria-label="Watch demo">▶</a></div></div>
-
-      <div class="pc" data-c="web ai"><span class="pn">AWA-016</span><div class="pmid"><div class="ptop"><span class="pcn">Intelligent Chatbot</span><span class="ptag ai">AI</span></div><div class="pct">Django · NLP</div><div class="pcd">A web-based chatbot using natural language processing for intelligent user interactions.</div></div><div class="pp"><a href="https://github.com/Ruushy/Intelligent-Chatbot-in-django" target="_blank" aria-label="View code">GH</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-017</span><div class="pmid"><div class="ptop"><span class="pcn">CyberBaro</span><span class="ptag platform">Platform</span></div><div class="pct">Security education</div><div class="pcd">A general cybersecurity learning platform built for Somali students.</div></div><div class="pp"><a href="https://ruushy.github.io/CyberBaro/cyberbaro.html" target="_blank" aria-label="Visit site">↗</a></div></div>
-
-      <div class="pc" data-c="platform"><span class="pn">AWA-018</span><div class="pmid"><div class="ptop"><span class="pcn">Muraajacda CCNA</span><span class="ptag platform">Platform</span></div><div class="pct">Networking · Somali</div><div class="pcd">A comprehensive CCNA review platform for Somali-speaking learners.</div></div><div class="pp"><a href="https://ruushy.github.io/Muraajacda-CCNA/ccna-somali-complete.html" target="_blank" aria-label="Visit site">↗</a></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="cert" class="sec">
-  <div class="w">
-    <div class="sh r"><span class="shN">§04</span><span class="shT">Verified credentials</span><span class="shSub">Independently issued</span></div>
-    <p style="font-size:.8rem;color:var(--ink2);line-height:1.8;max-width:580px;margin-bottom:30px" class="r">Every seal below is independently verifiable — click through to the issuer's own record, not a screenshot.</p>
-    <div class="cg">
-      <div class="cer r"><div class="ci">AWS</div><div class="cn">Cloud Security Foundations</div><div class="co">AWS Academy Graduate</div><div class="cd">Cloud security fundamentals, architecture, and secure deployment practices.</div><a href="https://www.credly.com/badges/c7340d11-6b7a-48a8-a7c1-68a4e2b0b00b/" target="_blank" class="cb">Verify ↗</a></div>
-      <div class="cer r" data-d="1"><div class="ci">CLD</div><div class="cn">Cloud Computing Security</div><div class="co">Beidat Academy</div><div class="cd">Advanced cloud security, threat modeling, and secure infrastructure management.</div><a href="https://courses.beidat.com/course-certificate/?cert_hash=cd1e766b1004eeab" target="_blank" class="cb">Verify ↗</a></div>
-      <div class="cer r" data-d="2"><div class="ci">RCN</div><div class="cn">Recon for Bug Bounty</div><div class="co">Udemy</div><div class="cd">Reconnaissance methodology for bug bounty hunters, pentesters, and researchers.</div><a href="https://www.udemy.com/certificate/UC-75201c1c-98de-442b-a412-1e0fa0d68d1c/" target="_blank" class="cb">Verify ↗</a></div>
-      <div class="cer r" data-d="3"><div class="ci">GIT</div><div class="cn">Git &amp; GitHub Collaboration</div><div class="co">Udemy</div><div class="cd">Version control workflows, branching strategy, and CI/CD fundamentals.</div><a href="https://www.udemy.com/certificate/UC-689c5d1d-35a7-4ae5-ba7f-ae28239cab5e/" target="_blank" class="cb">Verify ↗</a></div>
-    </div>
-  </div>
-</section>
-
-<section id="books" class="sec sec2">
-  <div class="w">
-    <div class="sh r"><span class="shN">§05</span><span class="shT">Publications</span><span class="shSub">Bibliography</span></div>
-    <p style="font-size:.8rem;color:var(--ink2);line-height:1.8;max-width:560px;margin-bottom:8px" class="r">Five field manuals, written and published in <strong style="color:var(--ink)">Somali</strong>, in reading order.</p>
-    <div class="bkl r">
-      <div class="bk"><span class="bkn">01</span><div><div class="bkt">Nmap in Somali</div><div class="bkc">Network scanning</div></div><a href="https://t.me/hacking_akhlaaqyin/13" target="_blank" class="bka">Read →</a></div>
-      <div class="bk"><span class="bkn">02</span><div><div class="bkt">Cybersecurity Fundamentals</div><div class="bkc">Beginner guide</div></div><a href="https://t.me/hacking_akhlaaqyin/21" target="_blank" class="bka">Read →</a></div>
-      <div class="bk"><span class="bkn">03</span><div><div class="bkt">Networking in 30 Days</div><div class="bkc">Networking</div></div><a href="https://t.me/hacking_akhlaaqyin/22" target="_blank" class="bka">Read →</a></div>
-      <div class="bk"><span class="bkn">04</span><div><div class="bkt">SQL Injection</div><div class="bkc">Web security</div></div><a href="https://t.me/hacking_akhlaaqyin/33" target="_blank" class="bka">Read →</a></div>
-      <div class="bk"><span class="bkn">05</span><div><div class="bkt">Cross Site Scripting</div><div class="bkc">Web security</div></div><a href="https://t.me/hacking_akhlaaqyin/35" target="_blank" class="bka">Read →</a></div>
-    </div>
-  </div>
-</section>
-
-<section id="education" class="sec">
-  <div class="w">
-    <div class="sh r"><span class="shN">§06</span><span class="shT">Chronology</span><span class="shSub">Training record</span></div>
-    <div class="tl">
-      <div class="tli active"><div class="tld"></div><div class="tly">2025 <span class="tlb">Active</span></div><div class="tlt">Diploma in Cybersecurity</div><div class="tls">City University · Mogadishu</div><div class="tlp">Advanced studies in cybersecurity, threat analysis, and defensive operations.</div></div>
-      <div class="tli"><div class="tld"></div><div class="tly">2025</div><div class="tlt">MERN Stack Development</div><div class="tls">City University · Mogadishu</div><div class="tlp">Full-stack training across MongoDB, Express.js, React, and Node.js.</div></div>
-      <div class="tli"><div class="tld"></div><div class="tly">2025</div><div class="tlt">Web Penetration Testing</div><div class="tls">Udemy · TryHackMe</div><div class="tlp">Ethical hacking — scanning, vulnerability identification, and responsible disclosure.</div></div>
-      <div class="tli"><div class="tld"></div><div class="tly">2024</div><div class="tlt">B.Sc. Computer Science</div><div class="tls">University of Somalia (UNISO)</div><div class="tlp">Foundation in programming, algorithms, networking, and software engineering.</div></div>
-      <div class="tli"><div class="tld"></div><div class="tly">2019</div><div class="tlt">High School</div><div class="tls">Imam Nawawi · Mogadishu</div><div class="tlp">Grounding in mathematics and the natural sciences.</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="sec sec2">
-  <div class="w">
-    <div class="ctg">
-      <div class="r">
-        <div class="cl">// Disclosure</div>
-        <h2 class="cth">Open a<br>new case.</h2>
-        <p class="ctbd">Need a secure application, a penetration test, or an engineer who can do both? I take on a limited number of engagements — reach out and I'll reply within a day.</p>
-        <div class="cs">
-          <a href="https://github.com/Ruushy" target="_blank" aria-label="GitHub">GH</a>
-          <a href="#" target="_blank" aria-label="LinkedIn">LI</a>
-          <a href="https://youtube.com/@Ruushy" target="_blank" aria-label="YouTube">YT</a>
-          <a href="https://t.me/hacking_akhlaaqyin" target="_blank" aria-label="Telegram">TG</a>
+      <div class="card terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span style="background:#FF5F57;"></span><span style="background:#FEBC2E;"></span><span style="background:#28C840;"></span>
+          </div>
+          <div class="terminal-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>
+            recon-session
+          </div>
         </div>
+        <div class="terminal-body" id="terminalBody"></div>
       </div>
-      <div class="r" data-d="2">
-        <div class="ctc">
-          <a href="tel:+252619987794"><span class="cti">TEL</span><div class="ctn"><div class="ctl">Phone</div><div class="ctv"><span class="redact" tabindex="0">+252 61 998 7794</span></div></div><span class="ctar">→</span></a>
-          <a href="mailto:arkani6563@gmail.com"><span class="cti">@</span><div class="ctn"><div class="ctl">Email</div><div class="ctv"><span class="redact" tabindex="0">arkani6563@gmail.com</span></div></div><span class="ctar">→</span></a>
-          <a href="https://github.com/Ruushy" target="_blank"><span class="cti">GH</span><div class="ctn"><div class="ctl">GitHub</div><div class="ctv">github.com/Ruushy</div></div><span class="ctar">→</span></a>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats">
+    <div class="shell stats-grid">
+      <div class="reveal">
+        <div class="stat-num" data-count="20" data-suffix="+">0</div>
+        <p class="stat-label">Security &amp; Web Projects Shipped</p>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-count="5" data-suffix="">0</div>
+        <p class="stat-label">Certifications Earned</p>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-count="5" data-suffix="">0</div>
+        <p class="stat-label">Technical Books Published</p>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-count="8" data-suffix="">0</div>
+        <p class="stat-label">Somali-Language Security Labs Built</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="shell">
+    <div class="section-heading reveal">
+      <span class="eyebrow"><span class="dot-pulse"></span>About</span>
+      <h2>Building and breaking web applications, on purpose.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-bio reveal">
+        <p>I'm an offensive-security-focused full-stack developer and web penetration tester, with a Bachelor's degree in Computer Science and hands-on experience across web application penetration testing, bug bounty hunting, vulnerability research, and security automation.</p>
+        <p>My background sits at the intersection of building and breaking: strong software engineering skills in the MERN stack and Django, paired with a practical, attacker's understanding of how web applications fail. That combination lets me design systems that hold up under scrutiny, and find the weaknesses in systems that don't.</p>
+        <p>Most of my time goes into building custom offensive-security tooling — reconnaissance frameworks, vulnerability scanners, and automated reporting pipelines — to streamline the full penetration testing and bug bounty workflow. I've shipped a bug bounty automation framework, a JavaScript secret-discovery tool, a full security scanning platform, and more than a dozen interactive cybersecurity training labs, several of which are the first of their kind written in the Somali language.</p>
+        <p>I work independently in Linux environments, with solid networking fundamentals, and I'm currently pursuing a Master's degree in Cybersecurity while continuing to build in public.</p>
+      </div>
+      <div class="focus-grid reveal">
+        <div class="card focus-card">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>
+          <h3>Offensive Security</h3>
+          <p>Web application penetration testing and bug bounty hunting with a focus on real, reportable impact.</p>
+        </div>
+        <div class="card focus-card">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
+          <h3>Reconnaissance &amp; OSINT</h3>
+          <p>Automated passive and active recon pipelines that turn a single domain into a full attack-surface map.</p>
+        </div>
+        <div class="card focus-card">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M8 6L2 12l6 6M16 6l6 6-6 6"/></svg>
+          <h3>Full-Stack Engineering</h3>
+          <p>MERN and Django experience used to build the same tools an attacker would try to break.</p>
+        </div>
+        <div class="card focus-card">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>
+          <h3>Linux &amp; Automation</h3>
+          <p>Comfortable operating and scripting entirely from the terminal, with networking fundamentals to match.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="shell">
+    <div class="section-heading reveal">
+      <span class="eyebrow"><span class="dot-pulse"></span>Technical Skills</span>
+      <h2>A stack built for both sides of the fence.</h2>
+      <p>Software engineering skills that ship products, paired with the offensive-security toolkit that tests them.</p>
+    </div>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="shell">
+    <div class="section-heading reveal">
+      <span class="eyebrow"><span class="dot-pulse"></span>Featured Projects</span>
+      <h2>Tools built to do the work of a full recon team.</h2>
+      <p>Each project ships as a working tool, not a proof of concept — built to be run against real targets and real workflows.</p>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+
+    <div class="sub-heading">
+      <div class="section-heading reveal">
+        <span class="eyebrow"><span class="dot-pulse"></span>Security Education</span>
+        <h2>Somali-language security labs, built room by room.</h2>
+        <p>A suite of TryHackMe-style training platforms, written from scratch to bring hands-on offensive-security training to Somali-speaking learners.</p>
+      </div>
+      <div class="platform-grid" id="platformGrid"></div>
+    </div>
+
+    <div class="sub-heading">
+      <div class="section-heading reveal">
+        <span class="eyebrow"><span class="dot-pulse"></span>More Builds</span>
+        <h2>Additional projects</h2>
+      </div>
+      <div class="addproj-grid" id="addProjGrid"></div>
+      <div class="see-more reveal">
+        <a href="https://github.com/Ruushy" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-4-1-7-4.5-7-9a10 10 0 0120 0c0 4.5-3 8-7 9M9 19v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg>
+          See the full portfolio on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH ============ -->
+  <section id="research" class="research">
+    <div class="shell">
+      <div class="section-heading reveal">
+        <span class="eyebrow"><span class="dot-pulse"></span>Bug Bounty &amp; Research</span>
+        <h2>How the work actually gets done.</h2>
+        <p>The discipline behind every project above — the research habits and methodology that inform SAHMIYE, RaadraacJS, and every lab built along the way.</p>
+      </div>
+      <div class="research-grid" id="researchGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section id="certifications" class="shell">
+    <div class="section-heading reveal">
+      <span class="eyebrow"><span class="dot-pulse"></span>Certifications</span>
+      <h2>Verified learning, not just claimed skills.</h2>
+      <p>Every certificate below links to a public, verifiable credential.</p>
+    </div>
+    <div class="cert-grid" id="certGrid"></div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="education">
+    <div class="shell">
+      <div class="section-heading reveal">
+        <span class="eyebrow"><span class="dot-pulse"></span>Education &amp; Training</span>
+        <h2>A learning path, still in motion.</h2>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- ============ BOOKS ============ -->
+  <section class="shell">
+    <div class="section-heading reveal">
+      <span class="eyebrow"><span class="dot-pulse"></span>Published Work</span>
+      <h2>Five books, written to lower the barrier to entry.</h2>
+      <p>Technical books authored in the Somali language, making cybersecurity and networking concepts accessible to Somali-speaking learners.</p>
+    </div>
+    <div class="book-grid reveal" id="bookGrid"></div>
+    <p class="books-note reveal">Access all books via <a href="https://t.me/hacking_akhlaaqyin" target="_blank" rel="noopener noreferrer">t.me/hacking_akhlaaqyin</a></p>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <div class="shell">
+      <div class="section-heading reveal">
+        <span class="eyebrow"><span class="dot-pulse"></span>Contact</span>
+        <h2>Have a target that needs testing, or a role worth discussing?</h2>
+        <p>Open to bug bounty collaborations, penetration testing engagements, and full-stack security work.</p>
+      </div>
+      <div class="contact-grid" id="contactGrid"></div>
+      <div class="contact-send reveal">
+        <a href="mailto:arkani6563@gmail.com" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M4 6l8 7 8-7"/></svg>
+          Send an email
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-  <span><b>Abdi Wali Ahmed</b> © 2026 — Mogadishu, Somalia</span>
-  <span>Doc AWA-FR-2026 · Page 1 of 1 · End of report</span>
+  <div class="shell footer-row">
+    <p id="footerYear">© 2026 Abdiwali Ahmed Abdisalam. Built with HTML, CSS &amp; JavaScript.</p>
+    <div class="footer-links">
+      <a href="https://github.com/Ruushy" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://youtube.com/@Ruushy" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="mailto:arkani6563@gmail.com">Email</a>
+    </div>
+  </div>
 </footer>
 
 <script>
-var isDark = false;
-var tbtn = document.getElementById('tbtn');
-tbtn.onclick = function() {
-  isDark = !isDark;
-  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-  tbtn.textContent = isDark ? 'LIGHT' : 'DARK';
-};
+(function(){
+  "use strict";
 
-var menu = document.getElementById('menu'), btn = document.getElementById('mb');
-function toggleMenu() {
-  btn.classList.toggle('open');
-  var open = menu.style.transform === 'translateY(0%)';
-  menu.style.transform = open ? 'translateY(-100%)' : 'translateY(0%)';
-  document.body.style.overflow = open ? '' : 'hidden';
-}
-function cM() { btn.classList.remove('open'); menu.style.transform = 'translateY(-100%)'; document.body.style.overflow = ''; }
-btn.onclick = toggleMenu;
+  /* ---------- DATA (sourced strictly from the CV) ---------- */
+  var skills = [
+    { category: "Programming & Web", items: ["JavaScript (ES6+)","Python","HTML5","CSS3","MERN Stack (MongoDB, Express.js, React, Node.js)","Django"] },
+    { category: "Offensive Security", items: ["Web Application Penetration Testing","Vulnerability Assessment","Exploitation","Bug Bounty Methodologies","Security Reporting","JavaScript / API Reconnaissance"] },
+    { category: "Reconnaissance & OSINT", items: ["Passive & Active Reconnaissance","Subdomain Enumeration","Content Discovery","Cloud Asset Enumeration","Subdomain Takeover Detection","crt.sh / AlienVault / HackerTarget Aggregation"] },
+    { category: "Networking", items: ["Network Scanning","Defensive Techniques","CCNA Fundamentals"] },
+    { category: "Tools", items: ["Nmap","Git","GitHub","Automated PDF Reporting","Security Header & Config Analyzers"] },
+    { category: "Cloud & Databases", items: ["AWS Foundations","Secure Deployment Practices","MySQL","MongoDB"] },
+    { category: "Operating Systems", items: ["Linux","Windows"] },
+    { category: "Languages", items: ["Arabic (Native)","Somali (Native)","English (Professional)"] }
+  ];
 
-document.querySelectorAll('.pfb').forEach(function(b) {
-  b.onclick = function() {
-    document.querySelectorAll('.pfb').forEach(function(x) { x.classList.remove('active'); });
-    b.classList.add('active');
-    var f = b.dataset.f;
-    document.querySelectorAll('.pc').forEach(function(c) {
-      c.style.display = (f === 'all' || (c.dataset.c || '').includes(f)) ? '' : 'none';
-    });
+  var featuredProjects = [
+    { name:"SAHMIYE", tagline:"Advanced Web Pentesting & Bug Bounty Automation Tool",
+      desc:"An end-to-end automation framework built for web application penetration testing and bug bounty hunting. SAHMIYE automates the complete reconnaissance and vulnerability discovery workflow, from first contact with a target to a finished report.",
+      features:["Passive & active reconnaissance","Subdomain enumeration","Vulnerability discovery","Automated PDF report generation"],
+      tech:["Python","Automation","Security"], tag:"Security · Bug Bounty",
+      demo:"https://www.youtube.com/watch?v=0QyqYxaHgIc" },
+    { name:"RaadraacJS", tagline:"JavaScript API & Secret Discovery Tool",
+      desc:"A reconnaissance tool purpose-built for penetration testing and bug bounty hunting. RaadraacJS analyzes JavaScript files and URLs to surface hidden API endpoints, exposed secrets and tokens, and client-side attack surface.",
+      features:["Hidden API endpoint discovery","Sensitive secret & token detection","JavaScript asset mapping","Client-side exposure analysis"],
+      tech:["JavaScript","Security Tooling"], tag:"Security · Bug Bounty",
+      demo:"https://www.youtube.com/watch?v=vvz7PehIBC0" },
+    { name:"BaareWeb", tagline:"Security Scanner",
+      desc:"A full security scanning platform that identifies vulnerabilities in target websites, detects misconfigurations, and generates professional vulnerability reports covering common attack vectors.",
+      features:["Automated vulnerability identification","Misconfiguration detection","Professional vulnerability reporting"],
+      tech:["Django","JavaScript","Bootstrap"], tag:"Security",
+      github:"https://github.com/Ruushy/BaareWeb" },
+    { name:"SahminINT", tagline:"OSINT Aggregation Tool",
+      desc:"A passive intelligence-gathering tool that aggregates data from crt.sh, AlienVault, and HackerTarget with zero active scanning — built for stealthy, low-noise target profiling.",
+      features:["Multi-source OSINT aggregation","Zero active scanning","Target profiling"],
+      tech:["Python","OSINT"], tag:"Security · OSINT" },
+    { name:"SecureScope", tagline:"Security Header Analyzer",
+      desc:"A local-first, zero-footprint analyzer for HTTP, TLS, CORS, and CSP security headers. Requires no login and leaves no external trace.",
+      features:["HTTP / TLS / CORS / CSP analysis","Local-first, zero footprint","No login required"],
+      tech:["Security","Web"], tag:"Security",
+      github:"https://github.com/Ruushy/Web-Security-Analyzer" },
+    { name:"Cod Hufan", tagline:"AI Voice Studio",
+      desc:"An AI-powered platform that fully automates audio and video enhancement — accepting any input and returning studio-quality, mastered speech while preserving the speaker's original voice identity.",
+      features:["Automated audio/video enhancement","Voice-identity preservation","Zero-touch processing pipeline"],
+      tech:["Django","AI","Automated Pipeline"], tag:"Web · AI",
+      github:"https://github.com/Ruushy/CodHufan-Voice-Studio-AI", demo:"https://youtu.be/K97AVLtlwr0" }
+  ];
+
+  var trainingPlatforms = [
+    { name:"SomXSS Academy", desc:"20-room interactive Cross-Site Scripting training platform, from fundamentals to advanced exploitation." },
+    { name:"SomSQLi Platform", desc:"20 locally-hosted vulnerable labs for hands-on SQL Injection training and penetration testing practice." },
+    { name:"SomJWT Academy", desc:"15-room training platform covering JWT vulnerabilities and authentication-bypass techniques." },
+    { name:"SomVuln Academy", desc:"SSRF and XXE vulnerability training platform with guided labs." },
+    { name:"SomPT Academy", desc:"Path Traversal and IDOR practice labs featuring real CTF flags." },
+    { name:"CyberOS", desc:"Browser-based ethical hacking simulation OS with an interactive terminal and lab environments." },
+    { name:"CyberBaro", desc:"Structured cybersecurity education platform covering foundational security concepts, written in Somali." },
+    { name:"Muraajacda CCNA", desc:"Comprehensive CCNA review platform summarizing networking topics for Somali learners." }
+  ];
+
+  var additionalProjects = [
+    { name:"Bakaaro POS System", desc:"Full-featured point-of-sale system for transaction processing and real-time inventory management.", tech:"MERN Stack" },
+    { name:"Web Pentesting Handbook", desc:"16-chapter interactive cybersecurity handbook teaching web pentesting fundamentals, with exercises.", tech:"Security · Education" },
+    { name:"SahalHadiye", desc:"Profiles targets and generates comprehensive penetration testing guides using passive reconnaissance.", tech:"Security" },
+    { name:"Nmap — Bilow ilaa Dhamaad", desc:"Educational site teaching Nmap with a built-in interactive terminal for hands-on practice.", tech:"Education" },
+    { name:"Intelligent Chatbot", desc:"Web-based chatbot using natural language processing for intelligent user interactions.", tech:"Django · NLP" }
+  ];
+
+  var researchFocus = [
+    { title:"Vulnerability Research", desc:"Studying how web applications, APIs, and cloud assets fail in practice, and building repeatable methodology around the patterns that keep surfacing." },
+    { title:"Reconnaissance Automation", desc:"Building tools like SAHMIYE and RaadraacJS to automate passive and active recon, so time goes into analysis rather than repetitive data-gathering." },
+    { title:"Web Security Testing", desc:"Hands-on penetration testing practice through TryHackMe rooms, Udemy coursework, and real-world labs." },
+    { title:"Security Reporting", desc:"Turning findings into clear, professional, and actionable reports — including automated PDF report generation built directly into personal tooling." },
+    { title:"Continuous Learning", desc:"Currently pursuing a Master's degree in Cybersecurity while completing bug bounty and reconnaissance-focused coursework from Wiz and Udemy." }
+  ];
+
+  var certifications = [
+    { title:"Bug Bounty Masterclass", issuer:"Wiz", desc:"Modern bug bounty methodologies, vulnerability research, responsible disclosure, and practical web application security.",
+      url:"https://www.wiz.io/bug-bounty-masterclass/certificate/f9d74acc-ca2e-4d4d-9271-cd6c7757b153", label:"Verify on wiz.io" },
+    { title:"Cloud Security Foundations", issuer:"AWS Academy Graduate", desc:"Cloud security fundamentals, AWS architecture, and secure deployment practices.",
+      url:"https://credly.com/badges/c7340d11-6b7a-48a8-a7c1-68a4e2b0b00b", label:"Verify on Credly" },
+    { title:"Cloud Computing Security", issuer:"Beidat Academy", desc:"Advanced cloud security, threat modeling, and secure infrastructure management.",
+      url:"https://courses.beidat.com", label:"Verify (Cert #cd1e766b1004eeab)" },
+    { title:"Recon for Bug Bounty", issuer:"Udemy", desc:"Reconnaissance methodologies for bug bounty hunters, pentesters, and researchers.",
+      url:"https://udemy.com/certificate/UC-75201c1c-98de-442b-a412-1e0fa0d68d1c", label:"Verify on Udemy" },
+    { title:"Git & GitHub Collaboration", issuer:"Udemy", desc:"Version control mastery — workflows, branching, and CI/CD fundamentals.",
+      url:"https://udemy.com/certificate/UC-689c5d1d-35a7-4ae5-ba7f-ae28239cab5e", label:"Verify on Udemy" }
+  ];
+
+  var education = [
+    { title:"Master's Degree in Cybersecurity", org:"City University, Mogadishu, Somalia", period:"In Progress",
+      desc:"Cybersecurity fundamentals, threat modeling, vulnerability analysis, and defensive security techniques." },
+    { title:"Bachelor of Computer Science", org:"University of Somalia (UNISO), Mogadishu, Somalia", period:"2020 – 2024",
+      desc:"Software engineering, algorithms, data structures, networking, databases, and IT systems." },
+    { title:"MERN Stack Development Training", org:"City University, Mogadishu, Somalia", period:"2025",
+      desc:"Full-stack web development: MongoDB, Express.js, React, Node.js — building scalable production applications." },
+    { title:"Web Penetration Testing", org:"Self-Directed Learning — Udemy, TryHackMe", period:"2025",
+      desc:"Ethical hacking methodology: reconnaissance, scanning, exploitation, and professional vulnerability reporting." }
+  ];
+
+  var books = [
+    { title:"Nmap in Somali", subtitle:"Network Scanning" },
+    { title:"Fundamentals of Cybersecurity", subtitle:"Beginner Guide" },
+    { title:"Networking Basics in 30 Days", subtitle:"Networking" },
+    { title:"SQL Injection — Techniques & Prevention", subtitle:"Web Security" },
+    { title:"Cross-Site Scripting (XSS) — Vulnerabilities & Mitigation", subtitle:"Web Security" }
+  ];
+
+  var contactChannels = [
+    { label:"Email", value:"arkani6563@gmail.com", href:"mailto:arkani6563@gmail.com",
+      icon:'<path d="M4 6h16v12H4z"/><path d="M4 6l8 7 8-7"/>' },
+    { label:"GitHub", value:"github.com/Ruushy", href:"https://github.com/Ruushy",
+      icon:'<path d="M9 19c-4-1-7-4.5-7-9a10 10 0 0120 0c0 4.5-3 8-7 9M9 19v-4a2 2 0 012-2h2a2 2 0 012 2v4"/>' },
+    { label:"YouTube", value:"youtube.com/@Ruushy", href:"https://youtube.com/@Ruushy",
+      icon:'<rect x="2" y="6" width="20" height="12" rx="3"/><path d="M11 10l4 2-4 2v-4z" fill="currentColor" stroke="none"/>' },
+    { label:"Telegram", value:"t.me/hacking_akhlaaqyin", href:"https://t.me/hacking_akhlaaqyin",
+      icon:'<path d="M22 2L2 10l6 2m14-10l-6 18-8-8m14-10L8 12"/>' }
+  ];
+
+  var esc = function(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); };
+
+  /* ---------- RENDER: SKILLS ---------- */
+  var skillsHtml = skills.map(function(g){
+    var chips = g.items.map(function(i){ return '<span class="chip">'+esc(i)+'</span>'; }).join("");
+    return '<div class="card skill-card reveal"><h3>'+esc(g.category)+'</h3><div class="skill-chips">'+chips+'</div></div>';
+  }).join("");
+  document.getElementById("skillsGrid").innerHTML = skillsHtml;
+
+  /* ---------- RENDER: FEATURED PROJECTS ---------- */
+  var scanIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>';
+  var projHtml = featuredProjects.map(function(p){
+    var features = p.features.map(function(f){ return "<li>"+esc(f)+"</li>"; }).join("");
+    var tech = p.tech.map(function(t){ return '<span class="chip">'+esc(t)+'</span>'; }).join("");
+    var links = "";
+    if(p.github){ links += '<a href="'+p.github+'" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-4-1-7-4.5-7-9a10 10 0 0120 0c0 4.5-3 8-7 9M9 19v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg>Code</a>'; }
+    if(p.demo){ links += '<a href="'+p.demo+'" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>Demo</a>'; }
+    return '<article class="card project-card reveal">'+
+      '<div class="project-thumb">'+scanIcon+'<span class="chip project-tag">'+esc(p.tag)+'</span></div>'+
+      '<div class="project-body"><h3>'+esc(p.name)+'</h3><p class="tagline">'+esc(p.tagline)+'</p>'+
+      '<p class="desc">'+esc(p.desc)+'</p><ul class="feature-list">'+features+'</ul>'+
+      '<div class="tech-row">'+tech+'</div><div class="link-row">'+links+'</div></div></article>';
+  }).join("");
+  document.getElementById("projectsGrid").innerHTML = projHtml;
+
+  /* ---------- RENDER: TRAINING PLATFORMS ---------- */
+  document.getElementById("platformGrid").innerHTML = trainingPlatforms.map(function(p){
+    return '<div class="card platform-card reveal"><h3>'+esc(p.name)+'</h3><p>'+esc(p.desc)+'</p></div>';
+  }).join("");
+
+  /* ---------- RENDER: ADDITIONAL PROJECTS ---------- */
+  document.getElementById("addProjGrid").innerHTML = additionalProjects.map(function(p){
+    return '<div class="card addproj-card reveal"><div class="addproj-head"><h3>'+esc(p.name)+'</h3><span class="chip">'+esc(p.tech)+'</span></div><p>'+esc(p.desc)+'</p></div>';
+  }).join("");
+
+  /* ---------- RENDER: RESEARCH ---------- */
+  document.getElementById("researchGrid").innerHTML = researchFocus.map(function(r){
+    return '<div class="research-item reveal"><h3>'+esc(r.title)+'</h3><p>'+esc(r.desc)+'</p></div>';
+  }).join("");
+
+  /* ---------- RENDER: CERTIFICATIONS ---------- */
+  var badgeIcon = '<svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 2 3-1 1 3 3 1-1 3 1 3-3 1-1 3-3-1-3 2-3-2-3 1-1-3-3-1 1-3-1-3 3-1 1-3 3 1z"/><path d="M9 12l2 2 4-4"/></svg>';
+  document.getElementById("certGrid").innerHTML = certifications.map(function(c){
+    return '<div class="card cert-card reveal">'+badgeIcon+'<h3>'+esc(c.title)+'</h3><p class="issuer">'+esc(c.issuer)+'</p>'+
+      '<p class="desc">'+esc(c.desc)+'</p>'+
+      '<a class="verify" href="'+c.url+'" target="_blank" rel="noopener noreferrer">'+esc(c.label)+
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4h6v6M20 4L10 14M6 4H4v16h16v-2"/></svg></a></div>';
+  }).join("");
+
+  /* ---------- RENDER: EDUCATION TIMELINE ---------- */
+  var capIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>';
+  document.getElementById("timeline").innerHTML = education.map(function(e){
+    return '<div class="timeline-item reveal"><span class="timeline-dot">'+capIcon+'</span>'+
+      '<div class="card timeline-card"><div class="timeline-head"><h3>'+esc(e.title)+'</h3><span class="period">'+esc(e.period)+'</span></div>'+
+      '<p class="org">'+esc(e.org)+'</p><p class="desc">'+esc(e.desc)+'</p></div></div>';
+  }).join("");
+
+  /* ---------- RENDER: BOOKS ---------- */
+  var bookIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4.5A2.5 2.5 0 016.5 2H20v18H6.5A2.5 2.5 0 004 17.5v-13z"/><path d="M4 17.5A2.5 2.5 0 016.5 15H20"/></svg>';
+  document.getElementById("bookGrid").innerHTML = books.map(function(b){
+    return '<div class="card book-card reveal">'+bookIcon+'<div><h3>'+esc(b.title)+'</h3><p class="subtitle">'+esc(b.subtitle)+'</p></div></div>';
+  }).join("");
+
+  /* ---------- RENDER: CONTACT ---------- */
+  document.getElementById("contactGrid").innerHTML = contactChannels.map(function(c){
+    var target = c.href.indexOf("mailto") === 0 ? "" : ' target="_blank" rel="noopener noreferrer"';
+    return '<a class="card contact-card reveal" href="'+c.href+'"'+target+'>'+
+      '<svg class="icon" viewBox="0 0 24 24">'+c.icon+'</svg>'+
+      '<span class="label">'+esc(c.label)+'</span><span class="value">'+esc(c.value)+'</span></a>';
+  }).join("");
+
+  /* ---------- NAV: scroll shadow + mobile toggle ---------- */
+  var navEl = document.getElementById("siteNav");
+  var onScroll = function(){
+    if(window.scrollY > 12){ navEl.classList.add("scrolled"); } else { navEl.classList.remove("scrolled"); }
   };
-});
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive:true });
 
-var ob = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('v'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.r, .tli').forEach(function(e) { ob.observe(e); });
+  var toggle = document.getElementById("navToggle");
+  var mobileMenu = document.getElementById("mobileMenu");
+  var iconMenu = document.getElementById("iconMenu");
+  var iconClose = document.getElementById("iconClose");
+  toggle.addEventListener("click", function(){
+    var open = mobileMenu.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    iconMenu.style.display = open ? "none" : "block";
+    iconClose.style.display = open ? "block" : "none";
+  });
+  Array.prototype.forEach.call(mobileMenu.querySelectorAll("a"), function(a){
+    a.addEventListener("click", function(){
+      mobileMenu.classList.remove("open");
+      iconMenu.style.display = "block";
+      iconClose.style.display = "none";
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  /* ---------- SCROLL REVEAL ---------- */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduceMotion){
+    Array.prototype.forEach.call(document.querySelectorAll(".reveal"), function(el){ el.classList.add("is-visible"); });
+  } else if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+    // Elements are injected dynamically above, so observe after render.
+    Array.prototype.forEach.call(document.querySelectorAll(".reveal"), function(el){ io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(document.querySelectorAll(".reveal"), function(el){ el.classList.add("is-visible"); });
+  }
+
+  /* ---------- ANIMATED COUNTERS ---------- */
+  var animateCounter = function(el){
+    var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+    var suffix = el.getAttribute("data-suffix") || "";
+    var start = null;
+    var duration = 1400;
+    var step = function(ts){
+      if(start === null) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if(progress < 1){ window.requestAnimationFrame(step); }
+    };
+    if(reduceMotion){ el.textContent = target + suffix; return; }
+    window.requestAnimationFrame(step);
+  };
+  var counters = document.querySelectorAll(".stat-num");
+  if("IntersectionObserver" in window){
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ animateCounter(entry.target); cio.unobserve(entry.target); }
+      });
+    }, { threshold: 0.4 });
+    Array.prototype.forEach.call(counters, function(el){ cio.observe(el); });
+  } else {
+    Array.prototype.forEach.call(counters, function(el){ animateCounter(el); });
+  }
+
+  /* ---------- HERO TERMINAL TYPEWRITER ---------- */
+  var lines = [
+    { text:"$ sahmiye scan --target example.com", prompt:true, delay:400 },
+    { text:"[+] passive recon ......... 214 subdomains", delay:900 },
+    { text:"[+] content discovery ..... 1,308 paths", delay:800 },
+    { text:"[+] takeover check ........ 2 candidates", delay:800 },
+    { text:"[+] cloud assets .......... 6 buckets", delay:800 },
+    { text:"[!] report generated ...... report.pdf", delay:800 },
+    { text:"$ raadraacjs analyze bundle.js", prompt:true, delay:900 },
+    { text:"[+] endpoints found ........ 37", delay:800 },
+    { text:"[+] exposed keys .......... 1 flagged", delay:800 }
+  ];
+  var termBody = document.getElementById("terminalBody");
+  var cursor = document.createElement("span");
+  cursor.className = "cursor";
+
+  var runTerminal = function(){
+    termBody.innerHTML = "";
+    var i = 0;
+    var typeNext = function(){
+      if(i >= lines.length){
+        setTimeout(runTerminal, 2600);
+        return;
+      }
+      var line = lines[i];
+      var p = document.createElement("p");
+      p.style.animationDelay = "0ms";
+      var span = document.createElement("span");
+      span.className = line.prompt ? "prompt" : "";
+      span.textContent = line.text;
+      p.appendChild(span);
+      termBody.insertBefore(p, cursor);
+      termBody.appendChild(cursor);
+      i += 1;
+      setTimeout(typeNext, line.delay);
+    };
+    typeNext();
+  };
+  if(reduceMotion){
+    termBody.innerHTML = lines.map(function(l){ return '<p><span class="'+(l.prompt?'prompt':'')+'">'+esc(l.text)+'</span></p>'; }).join("");
+  } else {
+    runTerminal();
+  }
+
+  /* ---------- AMBIENT NODE FIELD (hero background) ---------- */
+  var nodes = [
+    {x:60,y:80},{x:220,y:40},{x:380,y:120},{x:520,y:60},{x:680,y:140},
+    {x:140,y:220},{x:320,y:260},{x:480,y:210},{x:640,y:260},{x:780,y:90},
+    {x:40,y:300},{x:900,y:200}
+  ];
+  var edges = [[0,1],[1,2],[2,3],[3,4],[1,5],[5,6],[6,7],[7,8],[4,9],[8,11],[5,10],[2,6],[3,7],[9,4]];
+  var svgParts = ['<svg viewBox="0 0 960 360" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">'];
+  svgParts.push('<g stroke="#6366F1" stroke-opacity="0.35" stroke-width="1">');
+  edges.forEach(function(e){
+    var a = nodes[e[0]], b = nodes[e[1]];
+    svgParts.push('<line x1="'+a.x+'" y1="'+a.y+'" x2="'+b.x+'" y2="'+b.y+'"/>');
+  });
+  svgParts.push('</g>');
+  nodes.forEach(function(n, i){
+    var r = i % 3 === 0 ? 3.5 : 2.5;
+    var fill = i % 4 === 0 ? "#22D3EE" : "#8B5CF6";
+    var delay = (i % 6) * 0.35;
+    svgParts.push('<circle cx="'+n.x+'" cy="'+n.y+'" r="'+r+'" fill="'+fill+'" style="animation:pulseNode 2.4s ease-in-out infinite; animation-delay:'+delay+'s;"/>');
+  });
+  svgParts.push('</svg>');
+  document.getElementById("nodeField").innerHTML = svgParts.join("");
+
+  /* ---------- FOOTER YEAR ---------- */
+  document.getElementById("footerYear").textContent = "© " + new Date().getFullYear() + " Abdiwali Ahmed Abdisalam. Built with HTML, CSS & JavaScript.";
+
+})();
 </script>
 </body>
 </html>
