@@ -1,0 +1,12 @@
+Waxaan helay bug IDOR kaas oo ahaa business-logic bug. Kani waa sida aan u gaaray, step by step.
+Waxaan soo dajiyay JS bundles-ka oo dhan ee ka jiray subdomains-ka, waxaana raadinayay API endpoints, base_url, tokens iyo query parameters.
+ Natiijada JS-kareal backend base URL
+ "Frontend-ka request-yadu waxy yimaadaan ?n={uuid} iyo nt — kuwanu waxy yihiin access tokens ee xogta."  Tani ayaa ahayd hypothesis-ga aan ka bilaabay.
+Waxaan isweydiiyay: "Ma yahay token-ka n backend-ka si run ah loo hubiyo? Mise wuxuu uun u baahan yahay in uu yahay UUID sax ah qaab ahaan?"
+Waxaan sameeyay tijaabo fudud
+Request aan n token-ka lahayn → 200 OK + full data
+ n=00000000-0000-0000-0000-000000000000  invalid token 200 OK + full data
+- n=random uuid 200 OK + full data
+- n=invalid (non-UUID)  400 "Unable to validate communication."
+"Haddii token-ku uusan ku xidhnayn record-ka — ma labba communication id kale ayaan ku heli karaa data-ga customer kale?" Haa. Hab-uase: same token uuna ahi, khas MID mid — customer kale ayaa ka soo baxay.
+ PII da xasaasi — customer name, holdings, masked account identifier, iyo full voting record — ayaa soo baxay anigoon lahayn valid token/auth.

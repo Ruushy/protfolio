@@ -1,0 +1,28 @@
+Waxaan helnay CORS misconfiguration critical ah API server-ka production-ka ah.
+Any subdomain of the target domain wuxuu ku kalsoonaa inuu sameeyo credentialed cross-origin requests.
+Haddaan idiin sheego 
+Markii aan diray request subdomain origin ah:
+POST /api/auth/login HTTP/1.1
+Host: api.target.com
+Origin: https://evil.target.com
+Content-Type: application/json
+{"username":"test","password":"test"}
+Response Headers:
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: https://evil.target.com
+Access-Control-Allow-Credentials: true
+Content-Type: application/json
+Server-ku wuxuu reflecayaa ANY *.target.com origin wuxuuna siinayaa credentialed CORS access!
+Markii aan barbar dhignay external origin:
+Request:
+Origin: https://attacker.com
+Response:
+Access-Control-Allow-Origin: *
+(Credentials ma lahan)
+Tani waxay xaqiijinaysaa in server-ku si gaar ah ugu kalsoon yahay subdomains-ka oo dhan.
+Chain-ka:
+Hel subdomain takeover (dangling CNAME to third-party service)
+Claim the orphaned subdomain
+Host malicious JavaScript
+JS sameeyo cross-origin requests cookies-ka victim-ka leh
+Server-ku wuxuu kalsoonaa subdomain → full API access 
